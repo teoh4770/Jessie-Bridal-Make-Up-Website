@@ -1,6 +1,6 @@
 # Jessie-Bridal-Make-Up-Website
 
-Making a website + portfolio for my sister's make up business.
+Making a website that provides all the service info for the customers + portfolio to show my sister works for my sister's make up business.
 
 Inspiration from [Evamuah website](https://www.evamuah.com/)
 
