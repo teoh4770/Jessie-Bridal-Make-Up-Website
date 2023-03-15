@@ -14,7 +14,7 @@
   /* colors */
   --clr-dark: 230 35% 7%;
   --clr-beige: 37 31% 95%;
-  --clr-white: 37 31% 95%;
+  --clr-white: 0 0% 100%;
   --clr-navigation: 33 33% 95%;
     
 
@@ -64,9 +64,7 @@
 /*
   3. Allow percentage-based heights in the application
 */
-html, body {
-  height: 100%;
-}
+
 /*
   Typographic tweaks!
   4. Add accessible line-height
@@ -107,6 +105,7 @@ p, h1, h2, h3, h4, h5, h6 {
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
+  padding: 0;
 }
 
 ul[role='list'] > a,
@@ -194,6 +193,21 @@ h1 {
   gap: var(--gap, 1rem);
 }
 
+.stacked {
+  display: grid;
+  place-items: end start;
+  z-index: 1;
+}
+
+.stacked > * {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+
+.stacked > .media {
+  z-index: -1;
+}
+
 .center-items {
   place-items: center;
 }
@@ -259,7 +273,11 @@ h1 {
 }
 
 .tab-list > *:hover {
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
+}
+
+.selected {
+  border-bottom: 1px solid black;
 }
 
 /* screen-reader only */
@@ -277,7 +295,11 @@ h1 {
 
 /* color */
 .bg-beige { background-color: hsl(var(--clr-beige)); }
-.bg-nav { background-color: hsl(var(--clr-navigation) / .96); }
+.bg-nav { 
+  background-color: hsl(var(--clr-navigation) / .90); 
+  backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+}
 
 .text-dark { color: hsl(var(--clr-dark)); }
 .text-white { color: hsl(var(--clr-white)); }
@@ -366,6 +388,9 @@ h1 {
 
 /* start here */
 
+/*********************/
+/*** home.html CSS ***/
+/*********************/
 .main-navigation {
   border-bottom: 2px solid hsl(var(--clr-dark));
   position: fixed;
@@ -449,7 +474,7 @@ main {
 
   .home-header_right {
     width: 100%;
-    aspect-ratio: 1 / 1.1;
+    aspect-ratio: 1 / 1.05;
   }
   
 }
@@ -468,6 +493,7 @@ main {
   min-height: 70svh;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .section-home-intro h2 {
@@ -650,18 +676,19 @@ main {
   position: relative; 
 }
 
-.faq_question-wrapper {
-  position: relative;
+
+.faq_question > p {
+  font-size: clamp(var(--fs-200), 3.5vw, var(--fs-400));
 }
 
-.faq_icon > img {
-  width: 1.5rem;
-  aspect-ratio: 1;
+.faq_question-icon {
+  margin-left: auto;
 }
 
-.faq_question-number {
-  margin-right: -4rem;
+.faq_question-icon > img {
+  width: clamp(20px, 3.5vw, 35px);
 }
+
 
 
 @media(max-width:1000px) {
@@ -679,16 +706,6 @@ main {
 @media(max-width: 500px) {
   .section-home-faq h2 {
     font-size: var(--fs-500);
-  }
-}
-
-@media(max-width:650px) {
-  .unflex {
-    display: block;
-  }
-
-  .unflex > .faq_question-number {
-    margin-bottom: var(--space-bottom, .75rem);
   }
 }
 
@@ -755,6 +772,107 @@ footer .img-container .text {
   }
 }
 
+/*****************************/
+/*** service_page.html CSS ***/
+/*****************************/
+
+.service-header__bg{
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,1)), url("./images/image/services-image.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 90svh;
+}
+
+.service-header__title,
+.portfolio-header__title {
+  font-size: clamp(5.5rem, 20vw, 10rem);
+  padding-inline: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  width:100%;
+}
+
+.service-header__title::after,
+.portfolio-header__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: clamp(0rem, .5vw, 0.5rem);
+  width: 95%;
+  height: 2px;
+  background-color: white;
+}
+
+.portfolio-header__bg{
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,.5)), url("./images/image/portfolio-image.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top 40% ;
+  height: 90svh;
+}
+
+.portfolio-gallery ul {
+  margin-bottom: 2rem;
+}
+
+.portfolio-gallery li {
+  width: fit-content;
+}
+
+.portfolio-gallery__grid {
+  --gap: 1em;
+  --columns: 3;
+  margin: 0 auto;
+  display: column;
+  columns: var(--columns);
+  gap: var(--gap);
+}
+
+.portfolio-gallery__grid > * {
+  break-inside: avoid;
+  margin-bottom: var(--gap);
+}
+
+/* getting the images in 3 different size */
+/* one is perfect square */
+/* one is 9/16 */
+/* one is 1/2 */
+
+@media(max-width: 600px) {
+  .portfolio-gallery ul {
+    flex-direction: column;
+    --gap: 1rem;
+  }
+}
+
+@media(max-width: 900px) {
+  .portfolio-gallery__grid {
+    --columns: 2
+  }
+}
+
+@media(max-width: 450px) {
+  .portfolio-gallery__grid {
+    --columns: 1
+  }
+}
+
+@media(min-width: 450.001px) {
+  .ar-x {
+    aspect-ratio: 1/.95;
+  }
+  
+  .ar-l {
+    aspect-ratio: 1/1.5;
+  }
+  
+  .ar-xl {
+    aspect-ratio: 1 / 2;
+  }
+  
+}
 
 
 
