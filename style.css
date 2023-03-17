@@ -339,6 +339,7 @@ h1 {
   background-color: transparent;
   border-radius: var(--border-radius, 1.5rem);
   text-align: center;
+  cursor: pointer;
   /* transition */
   font-weight: 400;
   padding: 0.75rem 1.25rem;
@@ -381,8 +382,8 @@ h1 {
 
 .line {
   width: 100%;
-  height: var(--height, 2px);
-  background-color: hsl(var(--clr-dark));
+  height: var(--height, 1px);
+  background-color: hsl(var(--clr-dark)/.2);
 }
 
 /* start here */
@@ -876,6 +877,45 @@ footer .img-container .text {
   
 }
 
+/* service page: service content */
 
+.service-content__wrapper img {
+  aspect-ratio: 1;
+}
+
+@media(min-width: 850px) {
+  .service-content__wrapper {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .service-content__wrapper:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+
+  .service-content__wrapper > * {
+    flex: 1;
+  }
+
+  .service-content__content > .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .service-content__img {
+    margin-bottom: 0;
+  }
+
+  .service-content__wrapper img {
+    aspect-ratio: 1/1.35;
+  }
+
+  .service-content__content button {
+    margin-top: auto;
+  }
+
+}
 
 
