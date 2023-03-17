@@ -105,7 +105,6 @@ p, h1, h2, h3, h4, h5, h6 {
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
-  padding: 0;
 }
 
 ul[role='list'] > a,
@@ -298,7 +297,7 @@ h1 {
 .bg-nav { 
   background-color: hsl(var(--clr-navigation) / .90); 
   backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .text-dark { color: hsl(var(--clr-dark)); }
@@ -732,6 +731,7 @@ main {
 .social-medias > * {
   width: 2rem;
   aspect-ratio: 1;
+  cursor: pointer;
 }
 
 #whatsapp:hover {
@@ -835,6 +835,12 @@ footer .img-container .text {
   margin-bottom: var(--gap);
 }
 
+.portfolio-gallery__grid img {
+  object-fit: cover;
+  object-position: 50% 25%;
+  /* aspect-ratio: 1/1.5; */
+}
+
 /* getting the images in 3 different size */
 /* one is perfect square */
 /* one is 9/16 */
@@ -862,10 +868,6 @@ footer .img-container .text {
 @media(min-width: 450.001px) {
   .ar-x {
     aspect-ratio: 1/.95;
-  }
-  
-  .ar-l {
-    aspect-ratio: 1/1.5;
   }
   
   .ar-xl {
