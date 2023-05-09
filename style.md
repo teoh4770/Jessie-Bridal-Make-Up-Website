@@ -1,33 +1,33 @@
-# Front-end Style Guide
+# Style Guide
 
 ## Layout
 
 The designs were created to the following widths:
 
 - Mobile: 375px
+- Tablet: 768px
 - Desktop: 1440px
 
-## Colors
-
-### Primary
-- beige: 37 31% 95%;
+## Colors (rgb/hex/hsl)
 
 ### Neutral
-- black: 230 35% 7%;
-- white: 37 31% 95%;
+-- light-beige: rgb(246, 243, 238) / #F6F3EE / 37, 31%, 95
+
+### Primary
+-- beige: rgb(243, 236, 230) / #F3ECE6 / 28, 35%, 93%
+
+### Secondary
+-- black: rgb(43, 38, 38) / #2B2626 / 0, 6%, 16%
 
 ## Typography
-
-### Body Copy
-
-- Font size (quote): 28px
 
 ### Font
 
 ** Header font **
-- Family: [Belleza](https://fonts.google.com/specimen/Belleza?query=belleza)
-- Weights: 400
+- Family: Georgia, serif
+- Weights: 400(normal)
 
 ** Other than header font **
-- Family: [Montserrat](https://fonts.google.com/specimen/Montserrat?query=montserrat)
-- Weights: 300, 400
+- Family: Helvetica, sans-serif
+- Weights: 400(normal)
+
