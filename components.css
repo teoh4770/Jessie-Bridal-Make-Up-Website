@@ -152,6 +152,19 @@ This can be useful when you want to visually hide something on small screens but
   place-items: center;
 }
 
+/* Slide transitions */
+.slideUp {
+  -webkit-transform: translateY(-100px);
+  transform: translateY(-100px);
+  transition: transform 0.5s ease-out;
+}
+
+.slideDown {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  transition: transform 0.5s ease-out;
+}
+
 /*
   Josh Comeau CSS Reset 
 */
@@ -354,6 +367,13 @@ a:hover::after {
 }
 
 /* styling here */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+
 .navbar {
   --nav-height: 100px;
   background-color: rgba(var(--primary) / 0.8);
@@ -377,21 +397,26 @@ a:hover::after {
   gap: 2.5rem;
 }
 
-.container--menu {
-  min-height: calc(100vh - var(--nav-height));
+.menu {
+  max-height: 0;
+  transform-origin: top;
+  overflow: hidden;
+  transition: max-height var(--animated-time) ease-out;
 }
 
-.menu__items {
+.menu__container {
   display: flex;
   flex-direction: column;
+  padding-block: 2rem;
+  height: calc(100vh - var(--nav-height));
 }
 
-.menu__item {
-  margin-top: 1.5rem;
+.menu__container > * + * {
+  padding-top: 1.5rem;
 }
 
-.menu__item > * {
-  font-size: 1rem;
+.navbar--mobile[aria-expanded="true"] .menu {
+  max-height: calc(100vh - var(--nav-height));
 }
 
 /* js to toggle the menu */
@@ -603,7 +628,6 @@ a:hover::after {
 }
 
 .faq__icon > img {
-  /* transform: translateY(0); */
   transition: transform var(--animated-time, 250ms) ease-in;
 }
 

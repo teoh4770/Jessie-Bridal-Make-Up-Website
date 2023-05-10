@@ -1,8 +1,14 @@
 class App {
   constructor() {
     this.index = "";
+    this.newScrollPosition = 0;
+    this.lastScrollPosition;
 
     // $ indicates that this is an element, not a variable
+    this.$header = document.querySelector("header");
+    this.$navMobile = document.querySelector(".navbar--mobile");
+    this.$menu = document.querySelector(".menu");
+    this.$menuBtn = document.querySelector(".navbar__button");
     this.$faqItems = document.querySelectorAll(".faq__item");
     this.$faq = document.querySelector(".faq");
 
@@ -11,8 +17,17 @@ class App {
   }
 
   addEventListeners() {
+    window.addEventListener("scroll", this.debounce(this.autoHideHeader, 50));
+
     this.$faq.addEventListener("click", (event) => {
       this.openQuestionCard(event);
+    });
+
+    this.$menuBtn.addEventListener("click", () => {
+      const isExpanded =
+        this.$navMobile.getAttribute("aria-expanded") === "true";
+      const shouldClose = isExpanded ? false : true;
+      this.$navMobile.setAttribute("aria-expanded", shouldClose);
     });
   }
 
@@ -33,11 +48,40 @@ class App {
     }
   }
 
+  autoHideHeader() {
+    this.lastScrollPosition = window.scrollY;
+    // scroll down
+    if (
+      this.newScrollPosition < this.lastScrollPosition &&
+      this.lastScrollPosition > 80
+    ) {
+      this.$header.classList.remove("slideDown");
+      this.$header.classList.add("slideUp");
+
+      // scroll up
+    } else if (this.newScrollPosition > this.lastScrollPosition) {
+      this.$header.classList.add("slideDown");
+      this.$header.classList.remove("slideUp");
+    }
+
+    this.newScrollPosition = this.lastScrollPosition;
+  }
+
   // helper method
   addIndex(listOfElements) {
     listOfElements.forEach((element, key) => {
       element.dataset.id = key;
     });
+  }
+
+  debounce(func, timeout = 200) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    };
   }
 }
 
