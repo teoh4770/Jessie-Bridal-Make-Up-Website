@@ -25,6 +25,8 @@
   --sans-serif: "Helvetica Regular", Arial, Helvetica, sans-serif;
 
   --animated-time: 250ms;
+
+  --nav-height: 80px;
 }
 
 /*
@@ -129,13 +131,13 @@ This can be useful when you want to visually hide something on small screens but
 }
 
 .flow > * + * {
-  margin-top: 1rem;
+  margin-top: calc(var(--nav-height) * 1.25);
 }
 
 .container {
   width: 100%;
   max-width: 1348px;
-  padding-inline: 2.5rem;
+  padding-inline: 1.5rem;
   margin-inline: auto;
 }
 
@@ -145,6 +147,10 @@ This can be useful when you want to visually hide something on small screens but
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .center {
@@ -282,11 +288,16 @@ ul {
 
 /* body */
 body {
+  --body-size: 18px;
   color: rgba(var(--secondary) / 1);
   background-color: rgba(var(--neutral) / 1);
 
   font-family: var(--sans-serif);
-  font-size: 18px;
+  font-size: var(--body-size, 18px);
+}
+
+main {
+  margin-top: var(--nav-height);
 }
 
 /* end of body */
@@ -309,6 +320,7 @@ h2,
 h3,
 h4,
 h5 {
+  font-weight: normal;
   font-family: var(--serif);
   margin: 0;
   margin-top: 1.618rem; /*  Golden ratio  */
@@ -371,11 +383,10 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: 1000;
 }
 
 .navbar {
-  --nav-height: 100px;
   background-color: rgba(var(--primary) / 0.8);
   backdrop-filter: blur(10px);
 }
@@ -452,6 +463,8 @@ header {
 }
 
 .btn--icon > img {
+  width: 26px;
+  height: 18px;
   position: relative;
   bottom: 1px;
   transform: translateX(0);
@@ -578,7 +591,7 @@ header {
 
 .faq__question {
   outline: 1px solid black;
-  padding: 2rem 2.5rem;
+  padding: 1.5rem 2rem;
   transition: background-color var(--animated-time) ease,
     color var(--animated-time) ease;
   cursor: pointer;
@@ -653,3 +666,237 @@ header {
   filter: var(--filter-secondary);
   transform: rotate(45deg);
 }
+
+/* start styling here */
+
+.cta {
+  padding: 0;
+  padding-block: 0.75rem;
+  width: 100%;
+
+  justify-content: center;
+}
+
+.hero__heading {
+  padding-top: 2.111rem;
+  padding-bottom: 4.167rem;
+}
+
+.hero__heading > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hero__subheading > p {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.hero__subheading > p {
+  border-top: 2px solid rgba(var(--secondary) / 1);
+}
+
+.hero-two__description {
+  font-size: 2rem;
+}
+
+.hero-two__image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.services__cards {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.services__card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1.357;
+  object-fit: cover;
+
+  transition: border-radius var(--animated-time) ease-in;
+  border-radius: 0%;
+}
+
+.services__card-image:hover {
+  border-radius: 50%;
+}
+
+.services__card hr {
+  margin-block: 0.5rem;
+}
+
+.services__card-description {
+  display: flex;
+}
+
+.services__card-description > * {
+  display: inline-block;
+}
+
+.services__card-title {
+  margin-left: auto;
+}
+
+.container--about {
+  max-width: 750px;
+  margin-inline: auto;
+}
+
+.about__content {
+  position: relative;
+  z-index: 2;
+}
+
+.about__image {
+  aspect-ratio: 1 / 1.387;
+  object-fit: cover;
+  margin-inline: auto;
+
+  position: relative;
+  z-index: 1;
+  top: -100px;
+  margin-bottom: -100px;
+}
+
+.highlight {
+  backdrop-filter: invert(30%);
+}
+
+.about__btn {
+  width: 95%;
+  margin-inline: auto;
+
+  backdrop-filter: blur(30px);
+}
+
+/* home - portfolio */
+.container--portfolio-images {
+  display: grid;
+  gap: 2rem;
+  margin-block: 3rem;
+}
+
+.portfolio__image {
+  width: 100%;
+  aspect-ratio: 1 / 1.357;
+  object-fit: cover;
+
+  transition: border-radius var(--animated-time) ease-in;
+  border-radius: 0%;
+}
+
+.portfolio__image--special {
+  border-radius: 50%;
+  aspect-ratio: 1 / 1.75;
+}
+
+.portfolio__image:hover {
+  border-radius: 50%;
+}
+
+.FAQ__content {
+  margin-bottom: 3.25rem;
+}
+
+.instagram__images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 10px;
+}
+
+.instagram__images > img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.instagram__title {
+  font-size: 2rem;
+}
+
+.instagram__btn {
+  margin-top: 3rem;
+}
+
+.footer {
+  margin-top: calc(var(--nav-height) * 2);
+  margin-bottom: calc(var(--nav-height) * 0.5);
+}
+
+.footer__container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-section {
+  width: 200px;
+}
+
+.footer-section__list {
+  font-weight: 300;
+}
+
+.footer-section__item {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.socials__list {
+  display: flex;
+  gap: 12px;
+}
+
+.socials__link {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transition: background-color var(--animated-time, 250ms) ease,
+    filter var(--animated-time, 250ms) ease,
+    outline var(--animated-time, 250ms) ease;
+}
+
+.socials__link:hover {
+  background-color: rgba(var(--neutral) / 1);
+}
+
+.socials__link:hover::after {
+  all: unset;
+}
+
+@media (min-width: 480px) {
+  .socials__list {
+    margin-left: auto;
+  }
+
+  .socials__section {
+    justify-self: end;
+    align-self: end;
+  }
+}
+
+/* .socials > a {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transition: background-color var(--animated-time, 250ms) ease,
+    filter var(--animated-time, 250ms) ease,
+    outline var(--animated-time, 250ms) ease;
+}
+
+.socials > a:hover {
+  background-color: rgba(var(--neutral) / 1);
+}
+
+.socials > a:hover::after {
+  all: unset;
+} */

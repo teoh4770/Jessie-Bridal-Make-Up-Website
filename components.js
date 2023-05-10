@@ -5,7 +5,7 @@ class App {
     this.lastScrollPosition;
 
     // $ indicates that this is an element, not a variable
-    this.$header = document.querySelector("header");
+    this.$navDesktop = document.querySelector(".navbar--desktop");
     this.$navMobile = document.querySelector(".navbar--mobile");
     this.$menu = document.querySelector(".menu");
     this.$menuBtn = document.querySelector(".navbar__button");
@@ -50,18 +50,19 @@ class App {
 
   autoHideHeader() {
     this.lastScrollPosition = window.scrollY;
+    console.log(this.lastScrollPosition);
     // scroll down
     if (
       this.newScrollPosition < this.lastScrollPosition &&
       this.lastScrollPosition > 80
     ) {
-      this.$header.classList.remove("slideDown");
-      this.$header.classList.add("slideUp");
+      this.$navDesktop.classList.remove("slideDown");
+      this.$navDesktop.classList.add("slideUp");
 
       // scroll up
     } else if (this.newScrollPosition > this.lastScrollPosition) {
-      this.$header.classList.add("slideDown");
-      this.$header.classList.remove("slideUp");
+      this.$navDesktop.classList.add("slideDown");
+      this.$navDesktop.classList.remove("slideUp");
     }
 
     this.newScrollPosition = this.lastScrollPosition;
