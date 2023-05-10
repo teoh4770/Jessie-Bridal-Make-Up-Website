@@ -256,8 +256,7 @@ a {
   outline-offset: 2px;
 }
 
-button:focus,
-a:focus {
+button:focus {
   outline-color: rgba(var(--secondary) / 1);
 }
 
@@ -490,6 +489,11 @@ a:hover::after {
     outline var(--animated-time, 250ms) ease;
 }
 
+.socials__link > img {
+  width: 25px;
+  aspect-ratio: 1;
+}
+
 .socials__link.messenger {
   background-color: #55acee;
 }
@@ -514,7 +518,7 @@ a:hover::after {
   outline: 1px solid #55acee;
 }
 
-.socials__link:hover.messenger > svg {
+.socials__link:hover.messenger > img {
   filter: invert(74%) sepia(77%) saturate(3283%) hue-rotate(178deg)
     brightness(99%) contrast(89%);
 }
@@ -523,7 +527,7 @@ a:hover::after {
   outline: 1px solid #8a3ab9;
 }
 
-.socials__link:hover.instagram > svg {
+.socials__link:hover.instagram > img {
   filter: invert(30%) sepia(32%) saturate(2977%) hue-rotate(253deg)
     brightness(90%) contrast(97%);
 }
@@ -532,7 +536,7 @@ a:hover::after {
   outline: 1px solid #25d366;
 }
 
-.socials__link:hover.whatsapp > svg {
+.socials__link:hover.whatsapp > img {
   filter: invert(58%) sepia(96%) saturate(388%) hue-rotate(90deg)
     brightness(96%) contrast(88%);
 }
@@ -552,6 +556,7 @@ a:hover::after {
   padding: 2rem 2.5rem;
   transition: background-color var(--animated-time) ease,
     color var(--animated-time) ease;
+  cursor: pointer;
 }
 
 .faq__container {
@@ -597,18 +602,30 @@ a:hover::after {
   margin-bottom: 0;
 }
 
-.faq__question:hover {
+.faq__icon > img {
+  /* transform: translateY(0); */
+  transition: transform var(--animated-time, 250ms) ease-in;
+}
+
+.faq__question:hover .faq__icon > img {
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* toggle this class when click */
+.faq__item[aria-expanded="true"] {
   background-color: rgba(var(--secondary) / 1);
   color: rgba(var(--neutral) / 1);
 }
 
-.faq__question:hover > .faq__answer {
+.faq__item[aria-expanded="true"] .faq__answer {
   grid-template-rows: 1fr;
   margin-top: 1.5rem;
 }
 
-.faq__question:hover .faq__icon > img {
-  transform: rotate(45deg);
-  filter: invert(100%) sepia(60%) saturate(307%) hue-rotate(298deg)
+.faq__item[aria-expanded="true"] .faq__icon > img {
+  --filter-secondary: invert(100%) sepia(60%) saturate(307%) hue-rotate(298deg)
     brightness(102%) contrast(93%);
+
+  filter: var(--filter-secondary);
+  transform: rotate(45deg);
 }
