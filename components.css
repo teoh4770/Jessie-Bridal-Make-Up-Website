@@ -1,0 +1,614 @@
+/* import font style */
+@font-face {
+  font-family: "Georgia Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url(./assets/fonts/georgia.woff);
+}
+
+@font-face {
+  font-family: "Helvetica Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url(./assets/fonts/Helvetica.ttf);
+}
+
+/*
+  Custom variables
+*/
+:root {
+  --neutral: 246 243 238;
+  --primary: 243 236 230;
+  --secondary: 43 38 38;
+
+  --serif: "Georgia Regular", Georgia, "Times New Roman", Times, serif;
+  --sans-serif: "Helvetica Regular", Arial, Helvetica, sans-serif;
+
+  --animated-time: 250ms;
+}
+
+/*
+  Utility class
+***/
+
+/* Light Color Modifiers  */
+.text--light-3 {
+  color: rgba(var(--primary) / 1);
+}
+.text--light-2 {
+  color: rgba(var(--primary) / 0.7);
+}
+.text--light-1 {
+  color: rgba(var(--primary) / 0.5);
+}
+.text--light-0 {
+  color: rgba(var(--primary) / 0.12);
+}
+
+/* Dark Color Modifiers */
+.text--dark-3 {
+  color: rgba(var(--secondary) / 0.87);
+}
+.text--dark-2 {
+  color: rgba(var(--secondary) / 0.54);
+}
+.text--dark-1 {
+  color: rgba(var(--secondary) / 0.38);
+}
+.text--dark-0 {
+  color: rgba(var(--secondary) / 0.12);
+}
+
+/* Text Size Modifers */
+.text--large {
+  font-size: 1.333rem;
+  letter-spacing: 0.005rem;
+  line-height: 1.333;
+}
+.text--default {
+  font-size: 1rem;
+  line-height: 1.618;
+}
+/* subtitle? */
+.text--small {
+  font-size: 0.75rem;
+  letter-spacing: 0.02rem;
+  line-height: 1.618;
+}
+
+/* Text variant Modifiers -- inline */
+.text--caps {
+  font-size: 0.853rem;
+  font-weight: 600;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+}
+
+.hidden {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+/* 
+This can be useful when you want to visually hide something on small screens but show it on larger screens */
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.flow > * + * {
+  margin-top: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1348px;
+  padding-inline: 2.5rem;
+  margin-inline: auto;
+}
+
+.grid {
+  max-width: 1084px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+/*
+  Josh Comeau CSS Reset 
+*/
+
+/* 
+  1. Use a more intuitive box-sizing model
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+
+* {
+  margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.333;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 
+  general setting 
+*/
+
+/* remove the default setting */
+
+button,
+li {
+  all: unset;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+button,
+a {
+  --outline-width: 2px;
+  outline-width: var(--outline-width, 2px);
+  outline-style: solid;
+  outline-color: transparent;
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+  outline-color: rgba(var(--secondary) / 1);
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  width: fit-content;
+}
+/* end remove the default setting */
+
+/* body */
+body {
+  color: rgba(var(--secondary) / 1);
+  background-color: rgba(var(--neutral) / 1);
+
+  font-family: var(--sans-serif);
+  font-size: 18px;
+}
+
+/* end of body */
+
+/* fonts */
+h1 {
+  font-size: 3.157rem;
+  letter-spacing: 0.03rem;
+  line-height: 1.333;
+}
+
+h2 {
+  font-size: 2.369rem;
+  letter-spacing: 0.07rem;
+  line-height: 1.333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--serif);
+  margin: 0;
+  margin-top: 1.618rem; /*  Golden ratio  */
+  margin-bottom: 1.333rem; /*  Perfect Fourth  */
+}
+
+p {
+  line-height: 1.618 !important;
+  margin: 0;
+  margin-bottom: 0.75rem;
+  /* Body size(1rem / 1.333)   */
+}
+
+button {
+  font-size: 0.875rem;
+  font-weight: medium;
+  letter-spacing: 1.25;
+  text-transform: uppercase;
+}
+
+/* end of fonts */
+
+/* general styling */
+
+svg {
+  fill: currentColor;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(var(--secondary) / 0.75);
+
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  word-spacing: 2px;
+  text-transform: uppercase;
+
+  width: fit-content;
+  position: relative;
+}
+
+a:hover {
+  color: rgba(var(--secondary) / 1);
+  text-decoration-skip-ink: all;
+}
+
+a:hover::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  background-color: rgba(var(--secondary) / 1);
+}
+
+/* styling here */
+.navbar {
+  --nav-height: 100px;
+  background-color: rgba(var(--primary) / 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.container--navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: var(--nav-height, 96px);
+}
+
+.navbar__logo {
+  width: 125px;
+}
+
+.navbar__list {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.container--menu {
+  min-height: calc(100vh - var(--nav-height));
+}
+
+.menu__items {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__item {
+  margin-top: 1.5rem;
+}
+
+.menu__item > * {
+  font-size: 1rem;
+}
+
+/* js to toggle the menu */
+
+@media (min-width: 800px) {
+  .navbar {
+    display: block;
+  }
+
+  .navbar--mobile {
+    display: none;
+  }
+}
+/* navbar: refactor complete */
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 2rem;
+
+  width: fit-content;
+
+  background: transparent;
+  color: rgba(var(--secondary) / 1);
+  border: 2px solid rgba(var(--secondary) / 1);
+  border-radius: 25px;
+}
+
+.btn--normal:hover {
+  background: rgba(var(--secondary) / 1);
+  color: rgba(var(--neutral) / 1);
+}
+
+.btn--icon > img {
+  position: relative;
+  bottom: 1px;
+  transform: translateX(0);
+  transition: transform var(--animated-time, 250ms) ease;
+}
+
+.btn--icon:hover > img {
+  transform: translateX(5px);
+}
+
+/* test */
+.btn--hover {
+  background: rgba(var(--secondary) / 1);
+  color: rgba(var(--neutral) / 1);
+}
+
+.tabs {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.slider-control {
+  max-width: 90px;
+  display: flex;
+  gap: 30px;
+}
+
+.slider-control__arrow {
+  display: inline-block;
+  width: 30px;
+  cursor: pointer;
+}
+
+.slider-control__arrow > img {
+  width: 100%;
+  opacity: 0.75;
+}
+
+.slider-control__arrow--left > img {
+  transform: rotate(180deg);
+}
+
+.slider-control__arrow:hover > img {
+  opacity: 1;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socials > a {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transition: background-color var(--animated-time, 250ms) ease,
+    filter var(--animated-time, 250ms) ease,
+    outline var(--animated-time, 250ms) ease;
+}
+
+.socials__link.messenger {
+  background-color: #55acee;
+}
+
+.socials__link.instagram {
+  background-color: #8a3ab9;
+}
+
+.socials__link.whatsapp {
+  background-color: #25d366;
+}
+
+.socials > a:hover {
+  background-color: rgba(var(--neutral) / 1);
+}
+
+.socials > a:hover::after {
+  all: unset;
+}
+
+.socials__link:hover.messenger {
+  outline: 1px solid #55acee;
+}
+
+.socials__link:hover.messenger > svg {
+  filter: invert(74%) sepia(77%) saturate(3283%) hue-rotate(178deg)
+    brightness(99%) contrast(89%);
+}
+
+.socials__link:hover.instagram {
+  outline: 1px solid #8a3ab9;
+}
+
+.socials__link:hover.instagram > svg {
+  filter: invert(30%) sepia(32%) saturate(2977%) hue-rotate(253deg)
+    brightness(90%) contrast(97%);
+}
+
+.socials__link:hover.whatsapp {
+  outline: 1px solid #25d366;
+}
+
+.socials__link:hover.whatsapp > svg {
+  filter: invert(58%) sepia(96%) saturate(388%) hue-rotate(90deg)
+    brightness(96%) contrast(88%);
+}
+
+.faq {
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+}
+
+.faq__item {
+  width: 100%;
+}
+
+.faq__question {
+  outline: 1px solid black;
+  padding: 2rem 2.5rem;
+  transition: background-color var(--animated-time) ease,
+    color var(--animated-time) ease;
+}
+
+.faq__container {
+  display: flex;
+  align-items: center;
+}
+
+.faq__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .faq__wrapper {
+    flex-direction: row;
+    gap: 4rem;
+  }
+}
+
+.faq__icon {
+  margin-left: auto;
+  flex-basis: 100px;
+}
+
+.faq__icon > img {
+  width: 1.5rem;
+  aspect-ratio: 1;
+  margin-left: auto;
+  transition: transform var(--animated-time, 250ms) ease-in;
+}
+
+.faq__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  transition: grid-template-rows var(--animated-time, 250ms) ease-in,
+    margin-top var(--animated-time, 250ms) ease-in;
+}
+
+.faq__answer > p {
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.faq__question:hover {
+  background-color: rgba(var(--secondary) / 1);
+  color: rgba(var(--neutral) / 1);
+}
+
+.faq__question:hover > .faq__answer {
+  grid-template-rows: 1fr;
+  margin-top: 1.5rem;
+}
+
+.faq__question:hover .faq__icon > img {
+  transform: rotate(45deg);
+  filter: invert(100%) sepia(60%) saturate(307%) hue-rotate(298deg)
+    brightness(102%) contrast(93%);
+}
