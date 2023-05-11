@@ -60,7 +60,7 @@
 
   <main class="flow">
     <section class="hero">
-      <img src="../assets/images/header__img.jpg" alt="<header description>">
+      <img class="hero__image" src="../assets/images/header__img.jpg" alt="<header description>">
       <div class="container container--hero">
         <div class="hero__heading">
           <h1>Bring your</h1>
@@ -89,7 +89,13 @@
 
     <section class="services">
       <div class="container">
-        <h2>I do makeup for</h2>
+        <div class="flex">
+          <h2>I do makeup for</h2>
+          <button class="btn btn--icon services__btn--desktop">
+            <span>Button</span>
+            <img src="../assets/svg/arrow.svg" alt="arrow">
+          </button>
+        </div>
         <section class="services__cards">
           <div class="services__card">
             <img class="services__card-image" src="../assets/images/header__img.jpg" alt="<header description>">
@@ -116,7 +122,7 @@
             </div>
           </div>
         </section>
-        <button class="btn btn--icon cta">
+        <button class="btn btn--icon cta services__btn--mobile">
           <span>Button</span>
           <img src="../assets/svg/arrow.svg" alt="arrow">
         </button>
@@ -138,27 +144,34 @@
 
     <section class="portfolio">
       <div class="container container--portfolio">
-        <h2 class="portfolio__title text-center">My clients</h2>
+        <h2 class="portfolio__title text-center heading-3">My clients</h2>
         <div class="portfolio__content">
           <button class="btn btn--icon cta portfolio__btn">
             <span>See portfolio</span>
             <img src="../assets/svg/arrow.svg" alt="arrow">
           </button>
         </div>
-        <div class="container--portfolio-images">
-          <img class="portfolio__image" src="../assets/images/header__img.jpg" alt="">
-          <img class="portfolio__image portfolio__image--special" src="../assets/images/header__img.jpg" alt="">
+        <div class="portfolio__grid">
+          <div class="portfolio__grid-area area-a">
+            <img class="portfolio__image" src="../assets/images/header__img.jpg" alt="">
+          </div>
+          <div class="portfolio__grid-area area-b">
+            <img class="portfolio__image portfolio__image--special" src="../assets/images/header__img.jpg" alt="">
+          </div>
+          <div class="portfolio__grid-area area-c">
+            <img class="portfolio__image portfolio__image" src="../assets/images/header__img.jpg" alt="">
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="home-FAQ">
-      <div class="container container--FAQ">
-        <div class="FAQ__content">
-          <h2 class="FAQ__title">FAQ</h2>
-          <p class="FAQ__subtitle">
+    <section class="home-faq">
+      <div class="container container--faq">
+        <div class="faq__content">
+          <h2 class="faq__title heading-3">FAQ</h2>
+          <p class="faq__subtitle">
             Here are the most commonly
-            question I get from my clients
+            questions I get from my clients.
           </p>
         </div>
         <ul class="faq">
@@ -175,7 +188,10 @@
                 </div>
               </div>
               <div class="faq__answer">
-                <p>Hello world</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim laboriosam optio, iste quas molestias
+                  temporibus unde ex exercitationem aliquid voluptates? Lorem ipsum, dolor sit amet consectetur
+                  adipisicing elit. Enim laboriosam optio, iste quas molestias temporibus unde ex exercitationem aliquid
+                </p>
               </div>
             </div>
           </li>
@@ -218,24 +234,30 @@
     </section>
 
     <section class="instagram">
-      <div class="container container--instagram">
+      <div class="container instagram__text-container">
         <h2 class="instagram__title">Follow me on Instagram</h2>
-        <div class="instagram__images">
-          <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
-          <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
-          <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
-          <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
-        </div>
-        <button class="btn btn--icon cta instagram__btn">
+        <button class="btn btn--icon cta instagram__btn instagram__btn--desktop">
           <span>@jessie</span>
           <img src="../assets/svg/arrow.svg" alt="arrow">
         </button>
       </div>
+      <div class="instagram__images">
+        <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
+        <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
+        <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
+        <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
+      </div>
+      <button class="btn btn--icon cta instagram__btn instagram__btn--mobile ">
+        <span>@jessie</span>
+        <img src="../assets/svg/arrow.svg" alt="arrow">
+      </button>
+
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer__container container">
+  <footer class="footer container">
+    <hr class="footer__line">
+    <div class="footer__container">
       <section class="footer-section">
         <ul class="footer-section__list">
           <li class="footer-section__item">

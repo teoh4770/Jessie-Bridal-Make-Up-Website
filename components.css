@@ -13,6 +13,8 @@
   src: url(./assets/fonts/Helvetica.ttf);
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
 /*
   Custom variables
 */
@@ -21,7 +23,7 @@
   --primary: 243 236 230;
   --secondary: 43 38 38;
 
-  --serif: "Georgia Regular", Georgia, "Times New Roman", Times, serif;
+  --serif: "Playfair Display", Georgia, "Times New Roman", Times, serif;
   --sans-serif: "Helvetica Regular", Arial, Helvetica, sans-serif;
 
   --animated-time: 250ms;
@@ -137,7 +139,7 @@ This can be useful when you want to visually hide something on small screens but
 .container {
   width: 100%;
   max-width: 1348px;
-  padding-inline: 1.5rem;
+  padding-inline: clamp(1.5rem, 7vw, 3rem);
   margin-inline: auto;
 }
 
@@ -169,6 +171,16 @@ This can be useful when you want to visually hide something on small screens but
   -webkit-transform: translateY(0);
   transform: translateY(0);
   transition: transform 0.5s ease-out;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading-3 {
+  font-size: clamp(2.369rem, 10vw, 3.5rem);
 }
 
 /*
@@ -225,6 +237,7 @@ svg {
 
 img {
   width: 100%;
+  object-fit: cover;
 }
 
 /*
@@ -387,8 +400,9 @@ header {
 }
 
 .navbar {
-  background-color: rgba(var(--primary) / 0.8);
+  background-color: rgba(var(--neutral) / 0.8);
   backdrop-filter: blur(10px);
+  border-bottom: 5px solid rgba(var(--secondary) / 0.8);
 }
 
 .container--navbar {
@@ -579,6 +593,7 @@ header {
     brightness(96%) contrast(88%);
 }
 
+/* search: faq */
 .faq {
   width: 100%;
   display: grid;
@@ -592,8 +607,7 @@ header {
 .faq__question {
   outline: 1px solid black;
   padding: 1.5rem 2rem;
-  transition: background-color var(--animated-time) ease,
-    color var(--animated-time) ease;
+
   cursor: pointer;
 }
 
@@ -649,6 +663,11 @@ header {
 }
 
 /* toggle this class when click */
+.faq__item {
+  transition: background-color var(--animated-time) ease,
+    color var(--animated-time) ease;
+}
+
 .faq__item[aria-expanded="true"] {
   background-color: rgba(var(--secondary) / 1);
   color: rgba(var(--neutral) / 1);
@@ -672,9 +691,23 @@ header {
 .cta {
   padding: 0;
   padding-block: 0.75rem;
-  width: 100%;
+  width: 97.5%;
 
   justify-content: center;
+}
+
+/* search: hero */
+.hero__image {
+  width: 100%;
+  aspect-ratio: 1 / 1.25;
+  object-fit: cover;
+}
+
+.hero__heading > * {
+  margin-top: 0;
+  margin-bottom: 0;
+  /* font-size: max 60px minimum*/
+  font-size: clamp(3.157rem, 10vw, 5rem);
 }
 
 .hero__heading {
@@ -682,22 +715,21 @@ header {
   padding-bottom: 4.167rem;
 }
 
-.hero__heading > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 .hero__subheading > p {
   padding-top: 1rem;
   padding-bottom: 3rem;
-}
 
-.hero__subheading > p {
   border-top: 2px solid rgba(var(--secondary) / 1);
 }
 
+@media (min-width: 580px) {
+  .hero__subheading {
+    width: 70%;
+  }
+}
+
 .hero-two__description {
-  font-size: 2rem;
+  font-size: clamp(2rem, 10vw, 2.25rem);
 }
 
 .hero-two__image {
@@ -706,10 +738,58 @@ header {
   object-fit: cover;
 }
 
+@media (min-width: 768px) {
+  .hero-two__image {
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (min-width: 1000px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero > *:nth-child(1) {
+    order: 2;
+  }
+
+  .container--hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* search: services */
 .services__cards {
   display: grid;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.services__btn--desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .services__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services__card-image {
+    aspect-ratio: 9/16;
+  }
+
+  .services__btn--desktop {
+    display: flex;
+    position: relative;
+    bottom: -5px;
+  }
+
+  .services__btn--mobile {
+    display: none;
+  }
 }
 
 .services__card-image {
@@ -746,6 +826,10 @@ header {
   margin-inline: auto;
 }
 
+.about__title {
+  font-size: clamp(2.369rem, 10vw, 4rem);
+}
+
 .about__content {
   position: relative;
   z-index: 2;
@@ -773,45 +857,113 @@ header {
   backdrop-filter: blur(30px);
 }
 
-/* home - portfolio */
-.container--portfolio-images {
+@media (min-width: 768px) {
+  .portfolio__title {
+    text-align: left;
+  }
+
+  .portfolio__btn {
+    width: auto;
+    padding: 0.75rem 2rem;
+  }
+}
+
+/* search: portfolio */
+.portfolio__grid {
   display: grid;
-  gap: 2rem;
+  gap: 1rem;
   margin-block: 3rem;
 }
 
 .portfolio__image {
   width: 100%;
-  aspect-ratio: 1 / 1.357;
+  aspect-ratio: 16/10;
   object-fit: cover;
 
-  transition: border-radius var(--animated-time) ease-in;
+  transition: border-radius var(--animated-time) ease-in,
+    transform var(--animated-time) ease;
   border-radius: 0%;
 }
 
 .portfolio__image--special {
   border-radius: 50%;
-  aspect-ratio: 1 / 1.75;
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .portfolio__grid {
+    /* write here */
+    min-height: calc(100vh - var(--nav-height));
+
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(8, auto);
+    grid-template-areas:
+      "a b"
+      "a b"
+      "a b"
+      "a b"
+      "c b"
+      "c b"
+      "c b"
+      "c b";
+  }
+
+  .portfolio__image {
+    aspect-ratio: unset;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .area-a {
+    grid-area: a;
+  }
+
+  .area-b {
+    position: relative;
+    top: -100px;
+    grid-area: b;
+  }
+
+  .area-c {
+    grid-area: c;
+  }
+
+  .portfolio__image--special:hover {
+    transform: translateY(-20px);
+  }
 }
 
 .portfolio__image:hover {
   border-radius: 50%;
 }
 
-.FAQ__content {
+/* search: faq */
+.faq__content {
   margin-bottom: 3.25rem;
 }
 
+@media (min-width: 1080px) {
+  .container--faq {
+    display: flex;
+    gap: 6rem;
+  }
+
+  .faq__title {
+    margin-top: 0;
+  }
+}
+
+/* search: instagram */
 .instagram__images {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px 10px;
 }
 
-.instagram__images > img {
+.instagram__image > img {
   width: 100%;
   aspect-ratio: 1;
-  object-fit: cover;
 }
 
 .instagram__title {
@@ -822,9 +974,54 @@ header {
   margin-top: 3rem;
 }
 
+.instagram__btn--desktop {
+  display: none;
+}
+
+@media (min-width: 765px) {
+  .instagram__images {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-block: 2rem;
+  }
+
+  .instagram__btn {
+    margin-top: unset;
+  }
+
+  .instagram__btn--mobile {
+    display: none;
+  }
+
+  .instagram__btn--desktop {
+    display: flex;
+    width: fit-content;
+    padding: 0.75rem 2rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .instagram__text-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .instagram__btn--desktop {
+    position: relative;
+    bottom: -5px;
+  }
+}
+
 .footer {
   margin-top: calc(var(--nav-height) * 2);
   margin-bottom: calc(var(--nav-height) * 0.5);
+}
+
+.footer__line {
+  margin-bottom: 3rem;
+  margin-inline: auto;
+  color: rgba(var(--primary) / 1);
 }
 
 .footer__container {
@@ -844,7 +1041,7 @@ header {
 
 .footer-section__item {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .socials__list {
