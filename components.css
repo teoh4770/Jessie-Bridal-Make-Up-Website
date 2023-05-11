@@ -1,30 +1,16 @@
-/* import font style */
-@font-face {
-  font-family: "Georgia Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: url(./assets/fonts/georgia.woff);
-}
-
-@font-face {
-  font-family: "Helvetica Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: url(./assets/fonts/Helvetica.ttf);
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 
 /*
   Custom variables
 */
+
 :root {
   --neutral: 246 243 238;
   --primary: 243 236 230;
   --secondary: 43 38 38;
 
   --serif: "Playfair Display", Georgia, "Times New Roman", Times, serif;
-  --sans-serif: "Helvetica Regular", Arial, Helvetica, sans-serif;
+  --sans-serif: Helvetica, sans-serif;
 
   --animated-time: 250ms;
 
@@ -32,163 +18,7 @@
 }
 
 /*
-  Utility class
-***/
-
-/* Light Color Modifiers  */
-.text--light-3 {
-  color: rgba(var(--primary) / 1);
-}
-.text--light-2 {
-  color: rgba(var(--primary) / 0.7);
-}
-.text--light-1 {
-  color: rgba(var(--primary) / 0.5);
-}
-.text--light-0 {
-  color: rgba(var(--primary) / 0.12);
-}
-
-/* Dark Color Modifiers */
-.text--dark-3 {
-  color: rgba(var(--secondary) / 0.87);
-}
-.text--dark-2 {
-  color: rgba(var(--secondary) / 0.54);
-}
-.text--dark-1 {
-  color: rgba(var(--secondary) / 0.38);
-}
-.text--dark-0 {
-  color: rgba(var(--secondary) / 0.12);
-}
-
-/* Text Size Modifers */
-.text--large {
-  font-size: 1.333rem;
-  letter-spacing: 0.005rem;
-  line-height: 1.333;
-}
-.text--default {
-  font-size: 1rem;
-  line-height: 1.618;
-}
-/* subtitle? */
-.text--small {
-  font-size: 0.75rem;
-  letter-spacing: 0.02rem;
-  line-height: 1.618;
-}
-
-/* Text variant Modifiers -- inline */
-.text--caps {
-  font-size: 0.853rem;
-  font-weight: 600;
-  letter-spacing: 0.06rem;
-  text-transform: uppercase;
-}
-
-.hidden {
-  display: none;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  visibility: hidden;
-  opacity: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-/* 
-This can be useful when you want to visually hide something on small screens but show it on larger screens */
-.not-sr-only {
-  position: static;
-  width: auto;
-  height: auto;
-  padding: 0;
-  margin: 0;
-  visibility: visible;
-  opacity: 1;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
-}
-
-.capitalize {
-  text-transform: capitalize;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.cursor {
-  cursor: pointer;
-}
-
-.flow > * + * {
-  margin-top: calc(var(--nav-height) * 1.25);
-}
-
-.container {
-  width: 100%;
-  max-width: 1348px;
-  padding-inline: clamp(1.5rem, 7vw, 3rem);
-  margin-inline: auto;
-}
-
-.grid {
-  max-width: 1084px;
-  margin-inline: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.center {
-  display: grid;
-  place-items: center;
-}
-
-/* Slide transitions */
-.slideUp {
-  -webkit-transform: translateY(-100px);
-  transform: translateY(-100px);
-  transition: transform 0.5s ease-out;
-}
-
-.slideDown {
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-  transition: transform 0.5s ease-out;
-}
-
-.flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.heading-3 {
-  font-size: clamp(2.369rem, 10vw, 3.5rem);
-}
-
-/*
   Josh Comeau CSS Reset 
-*/
-
-/* 
-  1. Use a more intuitive box-sizing model
 */
 
 *,
@@ -197,35 +27,20 @@ This can be useful when you want to visually hide something on small screens but
   box-sizing: border-box;
 }
 
-/*
-  2. Remove default margin
-*/
-
 * {
   margin: 0;
 }
 
-/*
-  3. Allow percentage-based heights in the application
-*/
 html,
 body {
   height: 100%;
 }
 
-/*
-  Typographic tweaks!
-  4. Add accessible line-height
-  5. Improve text rendering
-*/
 body {
   line-height: 1.333;
   -webkit-font-smoothing: antialiased;
 }
 
-/*
-  6. Improve media defaults
-*/
 img,
 picture,
 video,
@@ -240,9 +55,6 @@ img {
   object-fit: cover;
 }
 
-/*
-  7. Remove built-in form typography styles
-*/
 input,
 button,
 textarea,
@@ -250,9 +62,6 @@ select {
   font: inherit;
 }
 
-/*
-  8. Avoid text overflows
-*/
 p,
 h1,
 h2,
@@ -263,11 +72,7 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* 
-  general setting 
-*/
-
-/* remove the default setting */
+/* my own extra css setting */
 
 button,
 li {
@@ -279,27 +84,11 @@ a {
   cursor: pointer;
 }
 
-button,
-a {
-  --outline-width: 2px;
-  outline-width: var(--outline-width, 2px);
-  outline-style: solid;
-  outline-color: transparent;
-  outline-offset: 2px;
-}
+/* 
+  general setting 
+*/
 
-button:focus {
-  outline-color: rgba(var(--secondary) / 1);
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-  width: fit-content;
-}
-/* end remove the default setting */
-
-/* body */
+/* body and main section */
 body {
   --body-size: 18px;
   color: rgba(var(--secondary) / 1);
@@ -312,8 +101,6 @@ body {
 main {
   margin-top: var(--nav-height);
 }
-
-/* end of body */
 
 /* fonts */
 h1 {
@@ -344,7 +131,6 @@ p {
   line-height: 1.618 !important;
   margin: 0;
   margin-bottom: 0.75rem;
-  /* Body size(1rem / 1.333)   */
 }
 
 button {
@@ -354,9 +140,24 @@ button {
   text-transform: uppercase;
 }
 
-/* end of fonts */
+button,
+a {
+  --outline-width: 2px;
+  outline-width: var(--outline-width, 2px);
+  outline-style: solid;
+  outline-color: transparent;
+  outline-offset: 2px;
+}
 
-/* general styling */
+button:focus {
+  outline-color: rgba(var(--secondary) / 1);
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  width: fit-content;
+}
 
 svg {
   fill: currentColor;
@@ -391,7 +192,81 @@ a:hover::after {
   background-color: rgba(var(--secondary) / 1);
 }
 
-/* styling here */
+/* end general setting */
+
+/* 
+  Utility class
+ */
+.hidden {
+  display: none;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.heading-3 {
+  font-size: clamp(2.369rem, 10vw, 3rem);
+}
+
+.flow > * + * {
+  margin-top: calc(var(--nav-height) * 1.25);
+}
+
+.mg-inline-auto {
+  margin-inline: auto;
+}
+
+/* end utility class */
+
+/* 
+  Reusable class
+ */
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* need fix? **/
+.container {
+  width: 100%;
+  max-width: 1348px;
+  padding-inline: clamp(1.5rem, 7vw, 3rem);
+  margin-inline: auto;
+}
+
+/* animation **/
+.slideUp {
+  -webkit-transform: translateY(-100px);
+  transform: translateY(-100px);
+  transition: transform 0.5s ease-out;
+}
+
+.slideDown {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  transition: transform 0.5s ease-out;
+}
+
+/* end reusable class */
+
+/* 
+  styling here 
+*/
+
+/*
+  Header section
+*/
 header {
   position: fixed;
   width: 100%;
@@ -423,9 +298,13 @@ header {
 }
 
 .menu {
+  /* Layout */
   max-height: 0;
+
+  /* Others */
   transform-origin: top;
   overflow: hidden;
+
   transition: max-height var(--animated-time) ease-out;
 }
 
@@ -444,8 +323,6 @@ header {
   max-height: calc(100vh - var(--nav-height));
 }
 
-/* js to toggle the menu */
-
 @media (min-width: 800px) {
   .navbar {
     display: block;
@@ -455,32 +332,42 @@ header {
     display: none;
   }
 }
-/* navbar: refactor complete */
+/* end header section */
 
 .btn {
+  /* Layout */
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 2rem;
 
+  /* Spacing */
+  padding: 0.75rem 2rem;
   width: fit-content;
 
-  background: transparent;
+  /* Colors */
+  background-color: transparent;
   color: rgba(var(--secondary) / 1);
+
+  /* Others */
   border: 2px solid rgba(var(--secondary) / 1);
   border-radius: 25px;
 }
 
 .btn--normal:hover {
-  background: rgba(var(--secondary) / 1);
+  background-color: rgba(var(--secondary) / 1);
   color: rgba(var(--neutral) / 1);
 }
 
 .btn--icon > img {
-  width: 26px;
-  height: 18px;
+  /* Layout */
   position: relative;
   bottom: 1px;
+
+  /* Spacing */
+  width: 26px;
+  height: 18px;
+
+  /* Others */
   transform: translateX(0);
   transition: transform var(--animated-time, 250ms) ease;
 }
@@ -489,7 +376,6 @@ header {
   transform: translateX(5px);
 }
 
-/* test */
 .btn--hover {
   background: rgba(var(--secondary) / 1);
   color: rgba(var(--neutral) / 1);
@@ -531,10 +417,15 @@ header {
 }
 
 .socials > a {
+  /* Layout */
   display: grid;
   place-items: center;
+
+  /* Spacing */
   width: 50px;
   aspect-ratio: 1;
+
+  /* Others */
   border-radius: 50%;
   transition: background-color var(--animated-time, 250ms) ease,
     filter var(--animated-time, 250ms) ease,
@@ -662,7 +553,6 @@ header {
   transform: translateY(-5px) scale(1.1);
 }
 
-/* toggle this class when click */
 .faq__item {
   transition: background-color var(--animated-time) ease,
     color var(--animated-time) ease;
@@ -686,7 +576,7 @@ header {
   transform: rotate(45deg);
 }
 
-/* start styling here */
+/* end of components styling */
 
 .cta {
   padding: 0;
@@ -706,7 +596,6 @@ header {
 .hero__heading > * {
   margin-top: 0;
   margin-bottom: 0;
-  /* font-size: max 60px minimum*/
   font-size: clamp(3.157rem, 10vw, 5rem);
 }
 
@@ -718,7 +607,6 @@ header {
 .hero__subheading > p {
   padding-top: 1rem;
   padding-bottom: 3rem;
-
   border-top: 2px solid rgba(var(--secondary) / 1);
 }
 
@@ -793,12 +681,14 @@ header {
 }
 
 .services__card-image {
+  /* Spacing */
   width: 100%;
   aspect-ratio: 1 / 1.357;
-  object-fit: cover;
 
-  transition: border-radius var(--animated-time) ease-in;
+  /* Others */
   border-radius: 0%;
+  object-fit: cover;
+  transition: border-radius var(--animated-time) ease-in;
 }
 
 .services__card-image:hover {
@@ -836,14 +726,18 @@ header {
 }
 
 .about__image {
-  aspect-ratio: 1 / 1.387;
-  object-fit: cover;
-  margin-inline: auto;
-
+  /* Layout */
   position: relative;
   z-index: 1;
+
+  /* Spacing */
   top: -100px;
   margin-bottom: -100px;
+  margin-inline: auto;
+  aspect-ratio: 1 / 1.387;
+
+  /* Others */
+  object-fit: cover;
 }
 
 .highlight {
@@ -876,13 +770,15 @@ header {
 }
 
 .portfolio__image {
+  /* Spacing */
   width: 100%;
   aspect-ratio: 16/10;
-  object-fit: cover;
 
+  /* Others */
+  object-fit: cover;
+  border-radius: 0%;
   transition: border-radius var(--animated-time) ease-in,
     transform var(--animated-time) ease;
-  border-radius: 0%;
 }
 
 .portfolio__image--special {
@@ -892,9 +788,7 @@ header {
 
 @media (min-width: 768px) {
   .portfolio__grid {
-    /* write here */
-    min-height: calc(100vh - var(--nav-height));
-
+    /* Layout */
     grid-template-columns: auto auto;
     grid-template-rows: repeat(8, auto);
     grid-template-areas:
@@ -906,9 +800,13 @@ header {
       "c b"
       "c b"
       "c b";
+
+    /* Spacing */
+    min-height: calc(100vh - var(--nav-height));
   }
 
   .portfolio__image {
+    /* Spacing */
     aspect-ratio: unset;
     width: 100%;
     max-width: 100%;
@@ -1050,10 +948,15 @@ header {
 }
 
 .socials__link {
+  /* Layout */
   display: grid;
   place-items: center;
+
+  /* Spacing */
   width: 50px;
   aspect-ratio: 1;
+
+  /* Others */
   border-radius: 50%;
   transition: background-color var(--animated-time, 250ms) ease,
     filter var(--animated-time, 250ms) ease,
@@ -1078,22 +981,3 @@ header {
     align-self: end;
   }
 }
-
-/* .socials > a {
-  display: grid;
-  place-items: center;
-  width: 50px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  transition: background-color var(--animated-time, 250ms) ease,
-    filter var(--animated-time, 250ms) ease,
-    outline var(--animated-time, 250ms) ease;
-}
-
-.socials > a:hover {
-  background-color: rgba(var(--neutral) / 1);
-}
-
-.socials > a:hover::after {
-  all: unset;
-} */
