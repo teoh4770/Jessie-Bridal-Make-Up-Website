@@ -240,7 +240,7 @@ a:hover::after {
 /* need fix? **/
 .container {
   width: 100%;
-  max-width: 1348px;
+  max-width: 1396px;
   margin-inline: auto;
 }
 
@@ -292,7 +292,7 @@ header {
   background-color: rgba(var(--neutral) / 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 5px solid rgba(var(--secondary) / 0.8);
+  border-bottom: 3px solid rgba(var(--secondary) / 0.8);
 }
 
 .container--navbar {
@@ -680,6 +680,10 @@ header {
   display: none;
 }
 
+.services__card-title {
+  text-transform: uppercase;
+}
+
 @media (min-width: 768px) {
   .services__cards {
     grid-template-columns: repeat(3, 1fr);
@@ -1005,7 +1009,7 @@ header {
 }
 
 /* 1348px - max-width breakpoint */
-@media (min-width: 1348px) {
+/* @media (min-width: 1348px) {
   .inline-padding {
     padding-inline: unset;
   }
@@ -1013,6 +1017,281 @@ header {
   .container--hero {
     padding-left: unset;
   }
+} */
+
+.header {
+  display: grid;
+  align-items: end;
+  min-height: 90vh;
+
+  /* we can set multiple value on background-image property
+    for example, linear gradient with the image
+  */
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 1)
+    ),
+    url("./assets/images/services__img.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
+.header--services {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 1)
+    ),
+    url("./assets/images/services__img.webp");
+}
 
+/* .header--about {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 1)
+    ),
+    url("./assets/images/");
+} */
+
+.header__title {
+  --color: rgba(var(--neutral) / 1);
+  margin-inline: clamp(1.5rem, 7vw, 3rem);
+  margin-bottom: 2.7778rem;
+
+  font-size: clamp(3.157rem, 10vw, 10rem);
+  color: var(--color);
+
+  border-bottom: 4px solid var(--color);
+}
+
+/* services page */
+
+.services__type-image {
+  aspect-ratio: 1 / 1.14;
+  margin-bottom: 2.223rem;
+}
+
+.service__number,
+.service__name {
+  margin: unset;
+}
+
+.service__name {
+  margin-bottom: 0.5rem;
+}
+
+.services__type + .services__type {
+  margin-top: calc(var(--nav-height) + 10px);
+}
+
+.service > * + * {
+  margin-top: 3.75rem;
+}
+
+.service__text-section {
+  margin-top: 1.5rem;
+}
+
+.service__price-listitem + .service__price-listitem {
+  margin-top: 2.25rem;
+}
+
+.service__labelname {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.service__labelname > span {
+  display: inline-block;
+}
+
+.service__label {
+  text-transform: uppercase;
+}
+
+.service__info {
+  font-size: 0.85rem;
+}
+
+.service__line--2 {
+  margin-top: 0.75rem;
+  margin-bottom: 1.45rem;
+  color: rgba(var(--secondary) / 0.25);
+}
+
+/* star!!! */
+/* select all the labelname beside the service line except the first one */
+.service__price-listitem
+  > .service__line
+  ~ .service__labelname
+  + .service__labelname {
+  margin-top: 1rem;
+}
+
+@media (min-width: 1000px) {
+  .services__type {
+    display: flex;
+    flex-direction: row;
+    gap: 2.889rem;
+  }
+
+  .services__type:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .services__type-image {
+    width: 55%;
+    margin-bottom: 0;
+  }
+
+  .service {
+    display: flex;
+    flex-direction: column;
+
+    width: 45%;
+  }
+
+  .service > .service__price-list:last-of-type {
+    margin-bottom: 3rem;
+  }
+
+  .service > .btn {
+    margin-top: auto;
+  }
+}
+
+/* portfolio images in service page */
+.services .portfolio__images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.services .portfolio__images > img:nth-child(odd) {
+  border-radius: 50%;
+}
+
+.services .portfolio__images > img {
+  width: 100%;
+  aspect-ratio: 1 / 1.554;
+}
+
+.services .portfolio__title {
+  text-align: initial;
+}
+
+.portfolio__image--desktop {
+  display: none;
+}
+
+.portfolio__text-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio__btn {
+  margin-top: 3rem;
+}
+
+.portfolio__btn--mobile {
+  display: flex;
+}
+
+.portfolio__btn--desktop {
+  display: none;
+}
+
+@media (min-width: 765px) {
+  .services .portfolio__images {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .portfolio__image--desktop {
+    display: block;
+  }
+
+  .portfolio__btn--mobile {
+    display: none;
+  }
+
+  .portfolio__btn--desktop {
+    display: flex;
+    margin-top: unset;
+  }
+}
+
+/* portfolio page */
+.header--portfolio {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 1)
+    ),
+    url("./assets/images/portfolio__img.webp");
+
+  /* adjust this */
+  background-position: left 50% top 35%;
+}
+
+.gallery__grid {
+  --gap: 1.2em;
+  --columns: 1;
+  display: column;
+  columns: var(--columns);
+  gap: var(--gap);
+}
+
+.gallery__grid > * {
+  break-inside: avoid;
+  margin-bottom: var(--gap);
+}
+
+.gallery__grid img {
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
+
+.featured-img {
+  aspect-ratio: 9/16;
+}
+
+.background-video {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* need a feature class */
+
+/* getting the images in 3 different size */
+/* one is perfect square */
+/* one is 9/16 */
+/* one is 1/2 */
+
+@media (min-width: 600px) {
+  .gallery__grid {
+    --columns: 2;
+  }
+
+  .background-video {
+    aspect-ratio: 16/10;
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery__grid {
+    --columns: 3;
+  }
+}
