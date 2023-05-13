@@ -3,6 +3,7 @@ class App {
     this.index = "";
     this.newScrollPosition = 0;
     this.lastScrollPosition;
+    this.imagesCount = 20;
 
     // $ indicates that this is an element, not a variable
     this.$navDesktop = document.querySelector(".navbar--desktop");
@@ -11,17 +12,21 @@ class App {
     this.$menuBtn = document.querySelector(".navbar__button");
     this.$faqItems = document.querySelectorAll(".faq__item");
     this.$faq = document.querySelector(".faq");
+    this.$gallery = document.querySelector(".gallery__grid");
 
     this.addIndex(this.$faqItems);
     this.addEventListeners();
+    this.addImages();
   }
 
   addEventListeners() {
     window.addEventListener("scroll", this.debounce(this.autoHideHeader, 50));
 
-    this.$faq.addEventListener("click", (event) => {
-      this.openQuestionCard(event);
-    });
+    if (this.$faq) {
+      this.$faq.addEventListener("click", (event) => {
+        this.openQuestionCard(event);
+      });
+    }
 
     this.$menuBtn.addEventListener("click", () => {
       const isExpanded =
@@ -50,7 +55,6 @@ class App {
 
   autoHideHeader() {
     this.lastScrollPosition = window.scrollY;
-    console.log(this.lastScrollPosition);
     // scroll down
     if (
       this.newScrollPosition < this.lastScrollPosition &&
@@ -83,6 +87,22 @@ class App {
         func.apply(this, args);
       }, timeout);
     };
+  }
+
+  addImages() {
+    const fragment = new DocumentFragment();
+    for (let i = 1; i <= this.imagesCount; i++) {
+      const content = document.createElement("div");
+      content.classList.add("content", "flow");
+
+      const image = document.createElement("img");
+      image.alt = "photo";
+      image.src = `../assets/jessie_photos/portfolio-img${i}.webp`;
+      content.appendChild(image);
+      fragment.appendChild(content);
+    }
+
+    this.$gallery.append(fragment);
   }
 }
 

@@ -5,336 +5,293 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌟Professional Makeup Artist in Melaka area</title>
-  <link rel="stylesheet" href="../style.css">
-
+  <title>V2</title>
+  <link rel="stylesheet" href="../components.css">
 </head>
 
 <body>
-  <!-- style: mobile first -->
-  <!-- writing html: desktop first(desktop html has the most complexity) -->
-  <!-- used what we already have in the custom properties and utility classes -->
-  <header class="main-navigation bg-nav ">
-    <div class="main-navbar container flex flex-sb flex-center">
-      <div>
-        <a href="./home.html">
-          <img src="../images/logo/jessie-logo.svg" alt="jessie logo" class="logo pointer">
-        </a>
-      </div>
-      <nav>
-        <ul role="list" class="flex tab-list uppercase fs-300">
-          <a href="./services_page.html">
-            <li>services</li>
+  <header>
+    <nav class="navbar hidden navbar--desktop">
+      <div class="container inline-padding container--navbar">
+        <section class="navbar__logo">
+          <a href="../html/home.html">
+            <img src="../assets/svg/logoipsum.svg" alt="logo">
           </a>
-          <a href="./portfolio_page.html">
-            <li>portfolio</li>
-          </a>
-          <a href="#contact">
-            <li>contact</li>
-          </a>
+        </section>
+        <ul class="navbar__list">
+          <li class="navbar__item">
+            <a href="../html/services_page.html">Services</a>
+          </li>
+          <li class="navbar__item">
+            <a href="../html/portfolio_page.html">Portfolio</a>
+          </li>
+          <li class="navbar__item">
+            <a href="../html/about_page.html">About Me</a>
+          </li>
         </ul>
-      </nav>
-    </div>
-
-    <div class="secondary-navbar container hidden">
-      <div>
-        <a href="./home.html">
-          <img src="../images/logo/jessie-logo.svg" alt="jessie logo" class="logo pointer">
-        </a>
       </div>
-      <div class="nav-icon">
-        <img src="../images/svg/burger-menu-svgrepo-com.svg" alt="burger-icon" class="burger-icon pointer">
+    </nav>
+    <nav class="navbar navbar--mobile">
+      <div class="container inline-padding container--navbar">
+        <section class="navbar__logo">
+          <a href="../html/home.html">
+            <img src="../assets/svg/logoipsum.svg" alt="logo">
+          </a>
+        </section>
+        <span class="navbar__button cursor">
+          <img src="../assets/svg/menu.svg" alt="logo">
+        </span>
       </div>
-    </div>
-
+      <ul class="container inline-padding menu">
+        <div class="menu__container">
+          <li class="menu__item">
+            <a href="../html/services_page.html">Services</a>
+          </li>
+          <li class="menu__item">
+            <a href="../html/portfolio__page.html">Portfolio</a>
+          </li>
+          <li class="menu__item">
+            <a href="../html/about_page.html">About Me</a>
+          </li>
+        </div>
+      </ul>
+    </nav>
   </header>
 
-  <main class="main-wrapper flow" style="--flow-space: 10rem;">
-    <!-- header 1 -->
-    <section class="section-home-header grid" style="--gap: 2rem;">
-      <div class="home-header_right">
-      </div>
-      <div class="home-header_left">
-        <div class="home-header_left-container container grid display-normal">
-          <div class="header-container">
-            <h1 class="ff-serif">
-              <span class="block">Bring your </span>
-              <span class="block">dream-look </span>
-              <span class="block">to life.</span>
-            </h1>
-          </div>
-          <div class="home-header_left-content-bottom">
-            <div class="home-header_line line margin-bottom"></div>
-            <p class="uppercase margin-bottom" style="--bottom-space: 2em;">
-              Enhance your natural beauty with a high-performance makeup artist and hairstylist with international
-              experience
-            </p>
-            <a href="#">
-              <button class="button pointer uppercase fs-200">inquire with us</button>
-            </a>
-          </div>
+  <main class="flow">
+    <section class="hero container">
+      <img class="hero__image" src="../assets/images/header__img.jpg" alt="<header description>">
+      <div class="container container--hero">
+        <div class="hero__heading">
+          <h1>Bring your</h1>
+          <h1>dream-look</h1>
+          <h1>to life.</h1>
         </div>
-      </div>
-    </section>
-
-    <!-- header 2 -->
-    <section class="section-home-intro container">
-      <h2 class="ff-serif margin-bottom" style="--bottom-space: 2rem; font-weight: 300;">
-        Soft, sexy, classy, romantic or bold look? It doesn't matter which style you're looking for.
-        We make it modern, we make it yours.
-      </h2>
-      <div class="home-intro-img"></div>
-
-      <div class="home-intro-intro_bottom_message">
-        <div class="line margin-top margin-bottom"></div>
-        <p class="fs-200">
-          It's very important to choose a right wedding stylist for your special day. The way
-          you feel depends on us. Personalization is what we care about. We start working with you in person long time
-          before the wedding day, so we can create the look you dreamed of. Your dress, your jewelry, your bouquet, your
-          makeup and your hairstyle should work perfectly together. We're here to make it happen. We are here to give
-          you the best beauty experience for your special day.
-        </p>
-      </div>
-    </section>
-
-    <!-- services -->
-    <section class="section-home-services container">
-      <div class="flex flex-center flex-sb margin-bottom" style="--bottom-space: 2rem;">
-        <h2 class="ff-serif fs-600">
-          I do makeup for
-        </h2>
-        <a href="#" class="hide-button">
-          <button class="button pointer uppercase fs-200">See all services</button>
-        </a>
-      </div>
-
-      <div class="grid" style="--gap: 4.25rem 1rem;">
-        <div class="grid-item">
-          <div class="img-container pointer">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="#">
-          </div>
-          <div class="line margin" style="--margin-space: 0.85rem;"></div>
-          <div class="services-title flex flex-sb">
-            <span>01/</span>
-            <span class="uppercase">Wedding Look</span>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="img-container pointer">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="#">
-          </div>
-          <div class="line margin" style="--margin-space: 0.85rem;"></div>
-          <div class="services-title flex flex-sb">
-            <span>02/</span>
-            <span class="uppercase">Photoshoot</span>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="img-container pointer">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="#">
-          </div>
-          <div class="line margin" style="--margin-space: 0.85rem;"></div>
-          <div class="services-title flex flex-sb">
-            <span>03/</span>
-            <span class="uppercase">Editorial Photoshoot</span>
-          </div>
-        </div>
-      </div>
-      <!-- button -->
-      <div class="hidden show-button margin-top" style="--top-space: 1.5rem;">
-        <a href="#">
-          <button class="button pointer uppercase fs-200">See all services</button>
-        </a>
-      </div>
-    </section>
-    <!-- portfolio -->
-    <section class="section-home-portfolio container">
-      <div class="flex flex-column margin-bottom" style="--bottom-space: 2rem;">
-        <h2 class="ff-serif fs-600 capitalize margin-bottom" style="--bottom-space: 0.5rem;">
-          My clients
-        </h2>
-        <a href="#">
-          <button class="button pointer uppercase fs-200">See portfolio</button>
-        </a>
-      </div>
-
-      <div class="grid">
-        <div class="grid-item pointer">
-          <div class="img-container">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="#">
-          </div>
-        </div>
-        <div class="grid-item pointer">
-          <div class="img-container">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="#" class="special-img">
-          </div>
-        </div>
-        <div class="grid-item pointer hide">
-          <div class="img-container">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="#">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- testimonial -->
-    <section class="section-home-testimonial container flex">
-      <div class="home-testimonial_left testimonial-quote">
-        <img class="home-testimonial_left-image" src="../images/svg/open-quote.svg" alt="quote">
-      </div>
-      <div class="home-testimonial_right">
-        <div class="line margin" style="--margin-space: 0.75rem;"></div>
-        <h2 class="home-testimonial_right-title ff-serif margin-bottom"
-          style="font-size: clamp(2.5rem, 6vw, var(--fs-700));">My hair looked fabulous!</h2>
-        <div class="home-testimonial_right-bottom-content flex " style="--gap: 4rem;">
-          <p class="comment">
-            I wanted to write a long thank you review, but I can’t describe in words how thankful I am to Eva for my
-            wedding look! I felt so comfortable with you! Thank you for making me sooo beautiful and
-            elegant! Thank you for supporting and comforting me during the whole process! You’re the best! Can’t wait to
-            schedule our makeup class!
+        <div class="hero__subheading">
+          <p class="uppercase">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, quia officia veritatis
           </p>
-          <p class="name">Galina</p>
+          <button class="btn btn--icon cta">
+            <span>Button</span>
+            <img src="../assets/svg/arrow.svg" alt="arrow">
+          </button>
         </div>
-        <div class="arrows flex flex-start">
-          <div class="left-arrow pointer">
-            <img src="../images/svg/left-arrow.svg" alt="left">
+      </div>
+    </section>
+
+    <section class="hero-two">
+      <div class="container inline-padding container--hero-two">
+        <h2 class="hero-two__description">Soft, sexy, classy, romantic or bold look? It doesn't matter which style
+          you're looking for.
+          We make it modern, we make it yours. </h2>
+        <img class="hero-two__image" src="../assets/images/header__img.jpg" alt="<header description>">
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="container inline-padding">
+        <div class="flex">
+          <h2>I do makeup for</h2>
+          <button class="btn btn--icon services__btn--desktop">
+            <span>Button</span>
+            <img src="../assets/svg/arrow.svg" alt="arrow">
+          </button>
+        </div>
+        <section class="services__cards">
+          <div class="services__card">
+            <img class="services__card-image" src="../assets/images/header__img.jpg" alt="<header description>">
+            <hr>
+            <div class="services__card-description">
+              <span class="services__card-number">01/</span>
+              <span class="services__card-title">wedding look</span>
+            </div>
           </div>
-          <div class="right-arrow pointer">
-            <img src="../images/svg/right-arrow.svg" alt="right">
+          <div class="services__card">
+            <img class="services__card-image" src="../assets/images/header__img.jpg" alt="<header description>">
+            <hr>
+            <div class="services__card-description">
+              <span class="services__card-number">01/</span>
+              <span class="services__card-title">wedding look</span>
+            </div>
+          </div>
+          <div class="services__card">
+            <img class="services__card-image" src="../assets/images/header__img.jpg" alt="<header description>">
+            <hr>
+            <div class="services__card-description">
+              <span class="services__card-number">01/</span>
+              <span class="services__card-title">wedding look</span>
+            </div>
+          </div>
+        </section>
+        <button class="btn btn--icon cta services__btn--mobile">
+          <span>Button</span>
+          <img src="../assets/svg/arrow.svg" alt="arrow">
+        </button>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container inline-padding container--about">
+        <div class="about__content">
+          <h2 class="about__title text-center">Work with a <br> <span class="highlight">specialist.</span></h2>
+          <button class="btn btn--icon cta about__btn">
+            <span>Get to know me</span>
+            <img src="../assets/svg/arrow.svg" alt="arrow">
+          </button>
+        </div>
+        <img class="about__image" src="../assets/images/header__img.jpg" alt="Home Page-About-Jessie">
+      </div>
+    </section>
+
+    <section class="portfolio">
+      <div class="container inline-padding container--portfolio">
+        <h2 class="portfolio__title text-center heading-3">My clients</h2>
+        <div class="portfolio__content">
+          <button class="btn btn--icon cta portfolio__btn">
+            <span>See portfolio</span>
+            <img src="../assets/svg/arrow.svg" alt="arrow">
+          </button>
+        </div>
+        <div class="portfolio__grid">
+          <div class="portfolio__grid-area area-a">
+            <img class="portfolio__image" src="../assets/images/header__img.jpg" alt="">
+          </div>
+          <div class="portfolio__grid-area area-b">
+            <img class="portfolio__image portfolio__image--special" src="../assets/images/header__img.jpg" alt="">
+          </div>
+          <div class="portfolio__grid-area area-c">
+            <img class="portfolio__image portfolio__image" src="../assets/images/header__img.jpg" alt="">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- faq -->
-    <section class="section-home-faq container flex" style="--gap: 1rem;">
-      <div class="home-faq_left">
-        <h2 class="uppercase fs-700 ff-serif margin-bottom" style="--bottom-space: 0.5em;">faq</h2>
-        <p class="fs-200">
-          Here are the most common questions I hear from my clients
-        </p>
-      </div>
-      <div class="faq_column full-width">
-        <div class="faq_list-wrapper">
-          <div class="faq_item">
-            <div class="faq_question-wrapper margin-bottom flex flex-center">
-              <div class="faq_question uppercase">
-                <p>How I can get in touch with you?</p>
-              </div>
-              <div class="faq_question-icon">
-                <img src="../images/svg/plus.svg" alt="plus-sign">
-              </div>
-
-            </div>
-            <div class="faq_answer">
-              <div class="faq_answer-wrapper content">
-                <p class="inside ">Please feel free to fill out the form at the bottom of the page</p>
-              </div>
-            </div>
-            <div class="line margin" style="opacity: 0.5; --height: 1px; --margin-space: 1.5em;"></div>
-          </div>
-          <div class="faq_item">
-            <div class="faq_question-wrapper margin-bottom flex flex-center">
-              <div class="faq_question uppercase">
-                <p>How I can get in touch with you?</p>
-              </div>
-              <div class="faq_question-icon">
-                <img src="../images/svg/plus.svg" alt="plus-sign">
-              </div>
-
-            </div>
-            <div class="faq_answer">
-              <div class="faq_answer-wrapper content">
-                <p class="inside ">Please feel free to fill out the form at the bottom of the page</p>
-              </div>
-            </div>
-            <div class="line margin" style="opacity: 0.5; --height: 1px; --margin-space: 1.5em;"></div>
-          </div>
-          <div class="faq_item">
-            <div class="faq_question-wrapper margin-bottom flex flex-center">
-              <div class="faq_question uppercase">
-                <p>How I can get in touch with you?</p>
-              </div>
-              <div class="faq_question-icon">
-                <img src="../images/svg/plus.svg" alt="plus-sign">
-              </div>
-
-            </div>
-            <div class="faq_answer">
-              <div class="faq_answer-wrapper content">
-                <p class="inside ">Please feel free to fill out the form at the bottom of the page</p>
-              </div>
-            </div>
-            <div class="line margin" style="opacity: 0.5; --height: 1px; --margin-space: 1.5em;"></div>
-          </div>
+    <section class="home-faq">
+      <div class="container inline-padding container--faq">
+        <div class="faq__content">
+          <h2 class="faq__title heading-3">FAQ</h2>
+          <p class="faq__subtitle">
+            Here are the most commonly
+            questions I get from my clients.
+          </p>
         </div>
-      </div>
-    </section>
-
-    <!-- Instagram -->
-    <section class="section-home-instagram">
-      <div class="container flex flex-center margin-bottom wrap" style="--bottom-space: 2rem;">
-        <h2 class="ff-serif" style="margin-right: 2rem; font-size: clamp(2.5rem, 7vw, var(--fs-700));">
-          Follow me on Instagram
-        </h2>
-        <a href="#" class="hide">
-          <button class="button pointer fs-200 letter-spacing-3">@Jessie</button>
-        </a>
-      </div>
-
-      <div class="grid" style="--gap: 1.5rem;">
-        <div class="grid-item">
-          <div class="img-container pointer">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="#" class="ar-1">
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="img-container pointer">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="#" class="ar-1">
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="img-container pointer">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="#" class="ar-1">
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="img-container pointer">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="#" class="ar-1">
-          </div>
-        </div>
-      </div>
-      <div class="container hidden unhidden margin-top" style="--top-space: 1.5rem;">
-        <a href="#">
-          <button class="button pointer uppercase fs-200">See all services</button>
-        </a>
+        <ul class="faq">
+          <li class="faq__item" aria-expanded="false">
+            <div class="faq__question">
+              <div class="faq__container">
+                <div class="faq__wrapper">
+                  <div class="faq__title">Question 1: Lorem ipsum dolor sit amet
+                  </div>
+                </div>
+                <div class="faq__icon">
+                  <img src="../assets/svg/add.svg" alt="expand">
+                </div>
+              </div>
+              <div class="faq__answer">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim laboriosam optio, iste quas molestias
+                  temporibus unde ex exercitationem aliquid voluptates? Lorem ipsum, dolor sit amet consectetur
+                  adipisicing elit. Enim laboriosam optio, iste quas molestias temporibus unde ex exercitationem aliquid
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="faq__item" aria-expanded="false">
+            <div class="faq__question">
+              <div class="faq__container">
+                <div class="faq__wrapper">
+                  <!-- <div class="faq__number">01</div> -->
+                  <div class="faq__title">Question 1: Lorem ipsum dolor sit amet
+                  </div>
+                </div>
+                <div class="faq__icon">
+                  <img src="../assets/svg/add.svg" alt="expand">
+                </div>
+              </div>
+              <div class="faq__answer">
+                <p>Hello world</p>
+              </div>
+            </div>
+          </li>
+          <li class="faq__item" aria-expanded="false">
+            <div class="faq__question">
+              <div class="faq__container">
+                <div class="faq__wrapper">
+                  <!-- <div class="faq__number">01</div> -->
+                  <div class="faq__title">Question 1: Lorem ipsum dolor sit amet
+                  </div>
+                </div>
+                <div class="faq__icon">
+                  <img src="../assets/svg/add.svg" alt="expand">
+                </div>
+              </div>
+              <div class="faq__answer">
+                <p>Hello world</p>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
+    <section class="instagram container">
+      <div class="inline-padding instagram__text-container">
+        <h2 class="instagram__title">Follow me on Instagram</h2>
+        <button class="btn btn--icon cta instagram__btn instagram__btn--desktop">
+          <span>@jessie</span>
+          <img src="../assets/svg/arrow.svg" alt="arrow">
+        </button>
+      </div>
+      <div class="instagram__images">
+        <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
+        <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
+        <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
+        <img class="instagram__image" src="../assets/images/header__img.jpg" alt="">
+      </div>
+      <button class="btn btn--icon cta instagram__btn instagram__btn--mobile mg-inline-auto">
+        <span>@jessie</span>
+        <img src="../assets/svg/arrow.svg" alt="arrow">
+      </button>
+
+    </section>
   </main>
 
-  <footer id="contact">
-    <div class="container" style="text-align: center;">
-      <div class="img-container">
-        <img src="../images/logo/jessie-logo.svg" alt="jessie-logo">
-      </div>
-      <div class="line margin" style="--height: 1px;"></div>
-      <h3 class="fs-500 ff-serif">Contact Me</h3>
-      <p class="fs-300">I'll get back to you within 24 hours.</p>
-      <div class="flex social-medias" style="--gap: 2rem; padding-block: 1.5rem; justify-content: center;">
-        <div class="flex-item">
-          <img id="whatsapp" src="../images/svg/icons8-whatsapp.svg" alt="whatsapp">
-        </div>
-        <div class="flex-item">
-          <img id="messenger" src="../images/svg/icons8-facebook-messenger.svg" alt="messenger">
-        </div>
-        <div class="flex-item">
-          <img id="instagram" src="../images/svg/icons8-instagram.svg" alt="instagram">
-        </div>
-      </div>
+  <footer class="footer container inline-padding">
+    <hr class="footer__line">
+    <div class="footer__container">
+      <section class="footer-section">
+        <ul class="footer-section__list">
+          <li class="footer-section__item">
+            <a href="#">Services</a>
+          </li>
+          <li class="footer-section__item">
+            <a href="#">Portfolio</a>
+          </li>
+          <li class="footer-section__item">
+            <a href="#">About Me</a>
+          </li>
+        </ul>
+      </section>
+      <section class="footer-section socials__section">
+        <ul class="footer-section__list socials__list">
+          <li class="footer-section__item">
+            <a href="#" class="socials__link instagram">
+              <img src="../assets/svg/instagram.svg" alt="Connect with me on Instagram">
+            </a>
+          </li>
+          <li class="footer-section__item">
+            <a href="#" class="socials__link messenger">
+              <img src="../assets/svg/messenger.svg" alt="Connect with me on Messenger">
+            </a>
+          </li>
+          <li class="footer-section__item">
+            <a href="#" class="socials__link whatsapp">
+              <img src="../assets/svg/whatsapp.svg" alt="Connect with me on Whatsapp">
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
   </footer>
-
+  <script src="../components.js"></script>
 </body>
 
 </html>

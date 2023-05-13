@@ -146,7 +146,7 @@ a {
   outline-width: var(--outline-width, 2px);
   outline-style: solid;
   outline-color: transparent;
-  outline-offset: 2px;
+  outline-offset: var(--outline-width, 2px);
 }
 
 button:focus {
@@ -164,17 +164,22 @@ svg {
 }
 
 a {
-  text-decoration: none;
-  color: rgba(var(--secondary) / 0.75);
+  /* Layout */
+  position: relative;
 
+  /* Spacing */
+  width: fit-content;
+
+  /* Typography */
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.04rem;
   word-spacing: 2px;
   text-transform: uppercase;
+  text-decoration: none;
 
-  width: fit-content;
-  position: relative;
+  /* Colors */
+  color: rgba(var(--secondary) / 0.75);
 }
 
 a:hover {
@@ -213,6 +218,22 @@ a:hover::after {
   text-align: center;
 }
 
+/* Text Size Modifers */
+.text--large {
+  font-size: 1.333rem;
+  letter-spacing: 0.005rem;
+  line-height: 1.333;
+}
+.text--default {
+  font-size: 1rem;
+  line-height: 1.618;
+}
+.text--small {
+  font-size: 0.75rem;
+  letter-spacing: 0.02rem;
+  line-height: 1.618;
+}
+
 .heading-3 {
   font-size: clamp(2.369rem, 10vw, 3rem);
 }
@@ -223,6 +244,10 @@ a:hover::after {
 
 .mg-inline-auto {
   margin-inline: auto;
+}
+
+.featured {
+  aspect-ratio: 9/16;
 }
 
 /* end utility class */
@@ -253,12 +278,6 @@ a:hover::after {
   padding-left: clamp(1.5rem, 7vw, 3rem);
 }
 
-.half-full-width {
-  width: 50vw;
-  position: relative;
-  right: 50%;
-}
-
 /* animation **/
 .slideUp {
   -webkit-transform: translateY(-100px);
@@ -278,9 +297,7 @@ a:hover::after {
   styling here 
 */
 
-/*
-  Header section
-*/
+/* Header section: navbar */
 header {
   position: fixed;
   width: 100%;
@@ -289,9 +306,10 @@ header {
 }
 
 .navbar {
+  --blur: blur(10px);
   background-color: rgba(var(--neutral) / 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
   border-bottom: 3px solid rgba(var(--secondary) / 0.8);
 }
 
@@ -647,6 +665,12 @@ header {
   }
 }
 
+@media (max-width: 1000px) {
+  .container--hero {
+    padding-inline: clamp(1.5rem, 7vw, 3rem);
+  }
+}
+
 @media (min-width: 1000px) {
   .hero {
     display: grid;
@@ -859,7 +883,7 @@ header {
 }
 
 .portfolio__image:hover {
-  border-radius: 50%;
+  border-radius: 50% !important;
 }
 
 /* search: faq */
@@ -1008,18 +1032,30 @@ header {
   }
 }
 
-/* 1348px - max-width breakpoint */
-/* @media (min-width: 1348px) {
-  .inline-padding {
-    padding-inline: unset;
-  }
+/* search: hero-header (big title at the first section of the pages other than main page) */
+.hero-header {
+  /* Layout */
+  display: grid;
+  align-items: end;
+  min-height: 90vh;
 
-  .container--hero {
-    padding-left: unset;
-  }
-} */
+  /* Others */
 
-.header {
+  /* we can set multiple value on background-image property
+    for example, linear gradient with the image
+  */
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 1)
+    ),
+    url("./assets/images/services__img.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-header {
   display: grid;
   align-items: end;
   min-height: 90vh;
@@ -1038,7 +1074,7 @@ header {
   background-position: center;
 }
 
-.header--services {
+.hero-header--services {
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0) 50%,
@@ -1047,16 +1083,7 @@ header {
     url("./assets/images/services__img.webp");
 }
 
-/* .header--about {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 50%,
-      rgba(0, 0, 0, 1)
-    ),
-    url("./assets/images/");
-} */
-
-.header__title {
+.hero-header__title {
   --color: rgba(var(--neutral) / 1);
   margin-inline: clamp(1.5rem, 7vw, 3rem);
   margin-bottom: 2.7778rem;
@@ -1067,8 +1094,7 @@ header {
   border-bottom: 4px solid var(--color);
 }
 
-/* services page */
-
+/* search: services page */
 .services__type-image {
   aspect-ratio: 1 / 1.14;
   margin-bottom: 2.223rem;
@@ -1080,7 +1106,7 @@ header {
 }
 
 .service__name {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .services__type + .services__type {
@@ -1165,22 +1191,6 @@ header {
   }
 }
 
-/* portfolio images in service page */
-.services .portfolio__images {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.services .portfolio__images > img:nth-child(odd) {
-  border-radius: 50%;
-}
-
-.services .portfolio__images > img {
-  width: 100%;
-  aspect-ratio: 1 / 1.554;
-}
-
 .services .portfolio__title {
   text-align: initial;
 }
@@ -1196,10 +1206,6 @@ header {
   align-items: center;
 }
 
-.portfolio__btn {
-  margin-top: 3rem;
-}
-
 .portfolio__btn--mobile {
   display: flex;
 }
@@ -1208,8 +1214,26 @@ header {
   display: none;
 }
 
-@media (min-width: 765px) {
-  .services .portfolio__images {
+/* service page */
+.portfolio__images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  margin-bottom: 3rem;
+}
+
+.portfolio__images > img:nth-child(odd) {
+  border-radius: 20%;
+}
+
+.portfolio__images > img {
+  width: 100%;
+  aspect-ratio: 1 / 1.554;
+}
+
+@media (min-width: 770px) {
+  .portfolio__images {
     grid-template-columns: repeat(5, 1fr);
   }
 
@@ -1223,12 +1247,11 @@ header {
 
   .portfolio__btn--desktop {
     display: flex;
-    margin-top: unset;
   }
 }
 
-/* portfolio page */
-.header--portfolio {
+/* search: portfolio page */
+.hero-header--portfolio {
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0) 50%,
@@ -1258,10 +1281,6 @@ header {
   aspect-ratio: 4/5;
 }
 
-.featured-img {
-  aspect-ratio: 9/16;
-}
-
 .background-video {
   width: 100%;
   aspect-ratio: 1;
@@ -1272,13 +1291,6 @@ header {
   height: 100%;
   object-fit: cover;
 }
-
-/* need a feature class */
-
-/* getting the images in 3 different size */
-/* one is perfect square */
-/* one is 9/16 */
-/* one is 1/2 */
 
 @media (min-width: 600px) {
   .gallery__grid {
@@ -1293,5 +1305,133 @@ header {
 @media (min-width: 900px) {
   .gallery__grid {
     --columns: 3;
+  }
+}
+
+/* search: about page */
+
+.about__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-page .about__title,
+.reasons__title {
+  font-size: clamp(2.2rem, 7vw, 3rem);
+}
+
+.about__text {
+  margin-bottom: 2.5rem;
+}
+
+.about__number {
+  font-size: 2.2rem;
+  font-family: var(--serif);
+}
+
+.about__labelname {
+  --border-color: rgba(var(--secondary) / 0.75);
+
+  /* Layout */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+
+  /* Spacing */
+  padding-block: 1.25rem;
+
+  /* Others */
+  border-bottom: 1px solid var(--border-color);
+}
+
+.about__labelname--first {
+  border-top: 1px solid var(--border-color);
+}
+
+.about__number {
+  margin: 0;
+}
+
+@media (min-width: 1080px) {
+  .about__header {
+    flex-direction: row;
+  }
+
+  .about-page .about__title {
+    position: relative;
+    top: -15px;
+    width: 45%;
+    margin: 0;
+  }
+}
+
+.container--reasons {
+  display: flex;
+  flex-direction: column;
+}
+
+.reasons__img-container {
+  background: url(./assets/images/beigemarblebg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: clamp(3rem, 10vw, 10rem);
+  min-height: var(100vh-var(--nav-height));
+}
+
+.reasons__img-container > img {
+  width: 100%;
+  aspect-ratio: 3/4;
+}
+
+.reasons__title {
+  margin-block: 3rem;
+  margin-bottom: 2.5rem;
+
+  font-size: clamp(2rem, 10vw, 2.25rem);
+}
+
+.reasons__number {
+  margin: unset;
+}
+
+.reasons__reason {
+  margin-top: calc(1.618rem / 4);
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1000px) {
+  .container--reasons {
+    flex-direction: row-reverse;
+    height: 100%;
+  }
+
+  /* when the element's position is set to sticky, it would make its parent a sticky container, that allow the element itself to stick within the parent's space */
+  .reasons__img-container {
+    /* Layout */
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
+  }
+
+  .reasons__main {
+    flex: 1;
+  }
+
+  .reasons__side {
+    flex: 2;
+  }
+
+  .reasons__title {
+    margin-top: 0;
+  }
+
+  .reasons__title ~ div {
+    margin-bottom: 5rem;
+  }
+
+  .reasons__title ~ div:last-of-type {
+    margin-bottom: 0;
   }
 }
