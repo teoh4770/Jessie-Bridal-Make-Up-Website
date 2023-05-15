@@ -29,6 +29,7 @@
 
 * {
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -696,7 +697,10 @@ header {
 /* search: services */
 .services__cards {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: center;
   gap: 1.5rem;
+
   margin-bottom: 1.5rem;
 }
 
@@ -709,10 +713,6 @@ header {
 }
 
 @media (min-width: 768px) {
-  .services__cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .services__card-image {
     aspect-ratio: 9/16;
   }
@@ -744,7 +744,8 @@ header {
 }
 
 .services__card hr {
-  margin-block: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .services__card-description {

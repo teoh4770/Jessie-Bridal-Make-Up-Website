@@ -11,14 +11,13 @@ class App {
     this.$menuBtn = document.querySelector(".navbar__button");
     this.$faqItems = document.querySelectorAll(".faq__item");
     this.$faq = document.querySelector(".faq");
-    this.$gallery = document.querySelector(".gallery__grid");
 
     this.addIndex(this.$faqItems);
     this.addEventListeners();
   }
 
   addEventListeners() {
-    window.addEventListener("scroll", this.debounce(this.autoHideHeader, 50));
+    window.addEventListener("scroll", this.debounce(this.autoHideHeader, 15));
 
     if (this.$faq) {
       this.$faq.addEventListener("click", (event) => {
@@ -60,11 +59,12 @@ class App {
     ) {
       this.$navDesktop.classList.remove("slideDown");
       this.$navDesktop.classList.add("slideUp");
-
+      console.log("scrolldown");
       // scroll up
     } else if (this.newScrollPosition > this.lastScrollPosition) {
       this.$navDesktop.classList.add("slideDown");
       this.$navDesktop.classList.remove("slideUp");
+      console.log("scrollup");
     }
 
     this.newScrollPosition = this.lastScrollPosition;

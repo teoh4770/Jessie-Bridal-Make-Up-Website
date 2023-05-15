@@ -1,7 +1,19 @@
 ---
-title: Homepage
-classname: home-page
-layout: 'mainlayout.njk'
+title: "Homepage"
+classname: "home-page"
+layout: "mainlayout.njk"
+
+hero_subheading: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+dolore ."
+
+second_hero_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."
+
+services_h2: "I do makeup for:"
+
+
+
 ---
 
 
@@ -14,10 +26,9 @@ layout: 'mainlayout.njk'
       <h1>to life.</h1>
     </div>
     <div class="hero__subheading">
-      <p class="uppercase">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, quia officia veritatis
-      </p>
+      <p class="uppercase">{{ hero_subheading }}</p>
       <button class="btn btn--icon cta">
-        <span>Button</span>
+        <span>Connect with me</span>
         <img src="../assets/svg/arrow.svg" alt="arrow">
       </button>
     </div>
@@ -26,9 +37,7 @@ layout: 'mainlayout.njk'
 
 <section class="hero-two">
   <div class="container inline-padding container--hero-two">
-    <h2 class="hero-two__description">Soft, sexy, classy, romantic or bold look? It doesn't matter which style
-      you're looking for.
-      We make it modern, we make it yours. </h2>
+    <h2 class="hero-two__description">{{ second_hero_description }}</h2>
     <img class="hero-two__image" src="../assets/images/header__img.jpg" alt="<header description>">
   </div>
 </section>
@@ -36,7 +45,7 @@ layout: 'mainlayout.njk'
 <section class="services">
   <div class="container inline-padding">
     <div class="flex">
-      <h2>I do makeup for</h2>
+      <h2>{{services_h2}}</h2>
       <button class="btn btn--icon services__btn--desktop">
         <span>Button</span>
         <img src="../assets/svg/arrow.svg" alt="arrow">
@@ -55,7 +64,7 @@ layout: 'mainlayout.njk'
         <img class="services__card-image" src="../assets/images/header__img.jpg" alt="<header description>">
         <hr>
         <div class="services__card-description">
-          <span class="services__card-number">01/</span>
+          <span class="services__card-number">02/</span>
           <span class="services__card-title">wedding look</span>
         </div>
       </div>
@@ -63,13 +72,13 @@ layout: 'mainlayout.njk'
         <img class="services__card-image" src="../assets/images/header__img.jpg" alt="<header description>">
         <hr>
         <div class="services__card-description">
-          <span class="services__card-number">01/</span>
+          <span class="services__card-number">03/</span>
           <span class="services__card-title">wedding look</span>
         </div>
       </div>
     </section>
     <button class="btn btn--icon cta services__btn--mobile">
-      <span>Button</span>
+      <span>See All Services</span>
       <img src="../assets/svg/arrow.svg" alt="arrow">
     </button>
   </div>
@@ -144,7 +153,6 @@ layout: 'mainlayout.njk'
         <div class="faq__question">
           <div class="faq__container">
             <div class="faq__wrapper">
-              <!-- <div class="faq__number">01</div> -->
               <div class="faq__title">Question 1: Lorem ipsum dolor sit amet
               </div>
             </div>
@@ -161,7 +169,6 @@ layout: 'mainlayout.njk'
         <div class="faq__question">
           <div class="faq__container">
             <div class="faq__wrapper">
-              <!-- <div class="faq__number">01</div> -->
               <div class="faq__title">Question 1: Lorem ipsum dolor sit amet
               </div>
             </div>
@@ -174,6 +181,23 @@ layout: 'mainlayout.njk'
           </div>
         </div>
       </li>
+      <li class="faq__item" aria-expanded="false">
+        <div class="faq__question">
+          <div class="faq__container">
+            <div class="faq__wrapper">
+              <div class="faq__title">Question 1: Lorem ipsum dolor sit amet
+              </div>
+            </div>
+            <div class="faq__icon">
+              <img src="../assets/svg/add.svg" alt="expand">
+            </div>
+          </div>
+          <div class="faq__answer">
+            <p>Hello world</p>
+          </div>
+        </div>
+      </li>
+
     </ul>
   </div>
 </section>
