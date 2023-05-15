@@ -11,11 +11,9 @@
 
 <body>
   {% include 'header.njk' %}
-  <main class="flow">
-    {{ content | safe }}
-    {% include 'instagram.njk' %}
-  </main>
+  {{ content | safe }}
   {% include 'footer.njk' %}
+  <script src="/app.js"></script>
 </body>
 
 </html>

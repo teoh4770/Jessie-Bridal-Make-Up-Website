@@ -1,0 +1,32 @@
+---
+title: Portfolio
+classname: portfolio-page
+layout: 'mainlayout.njk'
+---
+
+<section class="hero-header hero-header--portfolio">
+  <h1 class="hero-header__title container inline-padding">Portfolio</h1>
+</section>
+
+<!-- gallery -->
+<section class="gallery container inline-padding">
+  <div class="gallery__grid">
+    {% for image in gallery %}
+    <div class="content flow">
+      <img src="{{image}}" alt="">
+    </div>
+    {% endfor %}
+  </div>
+
+</section>
+
+
+
+<!-- media playing here -->
+<section class="portfolio__video inline-padding">
+  <div class="background-video">
+    <video class="video" autoplay loop muted>
+      <source src="../assets/video/short2.mp4" type="video/mp4" />
+    </video>
+  </div>
+</section>

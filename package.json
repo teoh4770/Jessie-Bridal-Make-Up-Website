@@ -5,7 +5,7 @@
   "main": "components.js",
   "scripts": {
     "start": "eleventy --serve",
-		"build": "eleventy"
+    "build": "eleventy"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "homepage": "https://github.com/teoh4770/Jessie-Bridal-Make-Up-Website#readme",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.12"
   }
 }

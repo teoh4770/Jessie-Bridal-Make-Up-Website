@@ -1,0 +1,8 @@
+---
+layout: 'base.njk'
+classname: defaultClass
+---
+<main class="{{classname}} flow">
+  {{ content | safe }}
+  {% include 'instagram.njk' %}
+</main>
