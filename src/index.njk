@@ -6,11 +6,9 @@ layout: "mainlayout.njk"
 hero_subheading: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 dolore ."
 
-second_hero_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-ut labore et dolore magna aliqua."
+second_hero_description: "Soft, sexy, classy, romantic or bold look? It doesn't matter which style you're looking for. We make it modern, we make it yours."
 
-services_h2: "I do makeup for:"
+services_h2: "I do makeup for"
 
 
 
@@ -38,7 +36,10 @@ services_h2: "I do makeup for:"
 <section class="hero-two">
   <div class="container inline-padding container--hero-two">
     <h2 class="hero-two__description">{{ second_hero_description }}</h2>
-    <img class="hero-two__image" src="../assets/images/header__img.jpg" alt="<header description>">
+    <div class="hero-two__image-wrapper animatedObj">
+      <img class="hero-two__image" src="../assets/images/header__img.jpg" alt="<header description>">
+      <div class="hero-two__image-cover"></div>
+    </div>
   </div>
 </section>
 
@@ -52,27 +53,36 @@ services_h2: "I do makeup for:"
       </button>
     </div>
     <section class="services__cards">
-      <div class="services__card">
-        <img class="services__card-image" src="../assets/images/header__img.jpg" alt="<header description>">
+      <div class="services__card ">
+        <div class="services__card-image-wrapper">
+          <img loading="lazy" class="services__card-image" src="../assets/images/header__img.jpg"
+            alt="<header description>">
+        </div>
         <hr>
         <div class="services__card-description">
           <span class="services__card-number">01/</span>
           <span class="services__card-title">wedding look</span>
         </div>
       </div>
-      <div class="services__card">
-        <img class="services__card-image" src="../assets/images/header__img.jpg" alt="<header description>">
+      <div class="services__card ">
+        <div class="services__card-image-wrapper">
+          <img loading="lazy" class="services__card-image" src="../assets/images/header__img.jpg"
+            alt="<header description>">
+        </div>
         <hr>
         <div class="services__card-description">
-          <span class="services__card-number">02/</span>
+          <span class="services__card-number">01/</span>
           <span class="services__card-title">wedding look</span>
         </div>
       </div>
-      <div class="services__card">
-        <img class="services__card-image" src="../assets/images/header__img.jpg" alt="<header description>">
+      <div class="services__card ">
+        <div class="services__card-image-wrapper">
+          <img loading="lazy" class="services__card-image" src="../assets/images/header__img.jpg"
+            alt="<header description>">
+        </div>
         <hr>
         <div class="services__card-description">
-          <span class="services__card-number">03/</span>
+          <span class="services__card-number">01/</span>
           <span class="services__card-title">wedding look</span>
         </div>
       </div>
@@ -86,21 +96,21 @@ services_h2: "I do makeup for:"
 
 <section class="about">
   <div class="container inline-padding container--about">
-    <div class="about__content">
-      <h2 class="about__title text-center">Work with a <br> <span class="highlight">specialist.</span></h2>
+    <div class="about__content animatedObj">
+      <h2 class="about__title text-center ">Work with a <br> world-class <br> <span class="highlight">specialist.</span></h2>
       <button class="btn btn--icon cta about__btn">
         <span>Get to know me</span>
         <img src="../assets/svg/arrow.svg" alt="arrow">
       </button>
     </div>
-    <img class="about__image" src="../assets/images/header__img.jpg" alt="Home Page-About-Jessie">
+    <img loading="lazy" class="about__image" src="../assets/images/header__img.jpg" alt="Home Page-About-Jessie">
   </div>
 </section>
 
 <section class="portfolio">
   <div class="container inline-padding container--portfolio">
-    <h2 class="portfolio__title text-center heading-3">My clients</h2>
-    <div class="portfolio__content">
+    <div class="portfolio__content animatedObj">
+      <h2 class="portfolio__title text-center">My clients</h2>
       <button class="btn btn--icon cta portfolio__btn">
         <span>See portfolio</span>
         <img src="../assets/svg/arrow.svg" alt="arrow">
@@ -108,13 +118,14 @@ services_h2: "I do makeup for:"
     </div>
     <div class="portfolio__grid">
       <div class="portfolio__grid-area area-a">
-        <img class="portfolio__image" src="../assets/images/header__img.jpg" alt="">
+        <img loading="lazy" class="portfolio__image" src="../assets/images/header__img.jpg" alt="">
       </div>
       <div class="portfolio__grid-area area-b">
-        <img class="portfolio__image portfolio__image--special" src="../assets/images/header__img.jpg" alt="">
+        <img loading="lazy" class="portfolio__image portfolio__image--special" src="../assets/images/header__img.jpg"
+          alt="">
       </div>
       <div class="portfolio__grid-area area-c">
-        <img class="portfolio__image portfolio__image" src="../assets/images/header__img.jpg" alt="">
+        <img loading="lazy" class="portfolio__image portfolio__image" src="../assets/images/header__img.jpg" alt="">
       </div>
     </div>
   </div>
@@ -123,7 +134,7 @@ services_h2: "I do makeup for:"
 <section class="home-faq">
   <div class="container inline-padding container--faq">
     <div class="faq__content">
-      <h2 class="faq__title heading-3">FAQ</h2>
+      <h2 class="faq__title">FAQ</h2>
       <p class="faq__subtitle">
         Here are the most commonly
         questions I get from my clients.

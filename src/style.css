@@ -11,6 +11,9 @@
 
   --serif: "Playfair Display", Georgia, "Times New Roman", Times, serif;
   --sans-serif: Helvetica, sans-serif;
+  --h1-font-size: clamp(3.157rem, 10vw, 5rem);
+  --h2-font-size: clamp(2.2rem, 7vw, 3rem);
+  --padding-inline: clamp(1rem, 4vw, 3rem);
 
   --animated-time: 250ms;
 
@@ -30,6 +33,7 @@
 * {
   margin: 0;
   scroll-behavior: smooth;
+  outline: 1px solid rgba(255, 0, 0, 0.2);
 }
 
 html,
@@ -105,13 +109,13 @@ main {
 
 /* fonts */
 h1 {
-  font-size: 3.157rem;
-  letter-spacing: 0.03rem;
+  font-size: var(--h1-font-size);
+  letter-spacing: 0.05rem;
   line-height: 1.333;
 }
 
 h2 {
-  font-size: 2.369rem;
+  font-size: var(--h2-font-size);
   letter-spacing: 0.07rem;
   line-height: 1.333;
 }
@@ -166,14 +170,15 @@ svg {
 
 a {
   /* Layout */
+  display: inline-block;
   position: relative;
 
   /* Spacing */
   width: fit-content;
 
   /* Typography */
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.975rem;
+  font-weight: 400;
   letter-spacing: 0.04rem;
   word-spacing: 2px;
   text-transform: uppercase;
@@ -235,10 +240,6 @@ a:hover::after {
   line-height: 1.618;
 }
 
-.heading-3 {
-  font-size: clamp(2.369rem, 10vw, 3rem);
-}
-
 .flow > * + * {
   margin-top: calc(var(--nav-height) * 1.25);
 }
@@ -271,12 +272,12 @@ a:hover::after {
 }
 
 .inline-padding {
-  padding-inline: clamp(1.5rem, 7vw, 3rem);
+  padding-inline: var(--padding-inline, 3rem);
 }
 
 .padding-left {
   padding: 0;
-  padding-left: clamp(1.5rem, 7vw, 3rem);
+  padding-left: var(--padding-inline, 3rem);
 }
 
 /* animation **/
@@ -630,7 +631,7 @@ header {
 .hero__heading > * {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: clamp(3.157rem, 10vw, 5rem);
+  font-size: var(--h1-font-size);
 }
 
 .hero__heading {
@@ -640,7 +641,9 @@ header {
 
 .hero__subheading > p {
   padding-top: 1rem;
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 0;
+
   border-top: 2px solid rgba(var(--secondary) / 1);
 }
 
@@ -650,14 +653,36 @@ header {
   }
 }
 
-.hero-two__description {
-  font-size: clamp(2rem, 10vw, 2.25rem);
+.hero-two__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.hero-two__image-cover {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--neutral) / 1);
+  transition: width 1.5s ease;
 }
 
 .hero-two__image {
-  width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
+  transform: scale(1.5);
+  transition: transform 1.5s ease;
+}
+
+.animate .hero-two__image-cover {
+  width: 0%;
+}
+
+.animate .hero-two__image {
+  transform: scale(1);
 }
 
 @media (min-width: 768px) {
@@ -668,7 +693,7 @@ header {
 
 @media (max-width: 1000px) {
   .container--hero {
-    padding-inline: clamp(1.5rem, 7vw, 3rem);
+    padding-inline: var(--padding-inline, 3rem);
   }
 }
 
@@ -702,6 +727,7 @@ header {
   gap: 1.5rem;
 
   margin-bottom: 1.5rem;
+  overflow: hidden;
 }
 
 .services__btn--desktop {
@@ -728,19 +754,23 @@ header {
   }
 }
 
+.services__card-image-wrapper {
+  overflow: hidden;
+}
+
 .services__card-image {
   /* Spacing */
   width: 100%;
   aspect-ratio: 1 / 1.357;
 
+  transform: scale(1);
   /* Others */
-  border-radius: 0%;
   object-fit: cover;
-  transition: border-radius var(--animated-time) ease-in;
+  transition: transform 5s ease-in;
 }
 
-.services__card-image:hover {
-  border-radius: 50%;
+.services__card-image-wrapper:hover .services__card-image {
+  transform: scale(1.25);
 }
 
 .services__card hr {
@@ -765,13 +795,25 @@ header {
   margin-inline: auto;
 }
 
-.about__title {
-  font-size: clamp(2.369rem, 10vw, 4rem);
+.about__content {
+  /* Layout */
+  position: relative;
+
+  /* Others */
+  z-index: 2;
 }
 
+.portfolio__content,
 .about__content {
-  position: relative;
-  z-index: 2;
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.portfolio__content.animate,
+.about__content.animate {
+  opacity: 1;
+  transform: translateY(0%);
 }
 
 .about__image {
@@ -789,17 +831,9 @@ header {
   object-fit: cover;
 }
 
-.highlight {
-  backdrop-filter: invert(30%);
-  -webkit-backdrop-filter: invert(30%);
-}
-
 .about__btn {
   width: 95%;
   margin-inline: auto;
-
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: invert(30%);
 }
 
 @media (min-width: 768px) {
@@ -910,13 +944,9 @@ header {
   gap: 15px 10px;
 }
 
-.instagram__image > img {
+.instagram__image {
   width: 100%;
   aspect-ratio: 1;
-}
-
-.instagram__title {
-  font-size: 2rem;
 }
 
 .instagram__btn {
@@ -1088,7 +1118,7 @@ header {
   --color: rgba(var(--neutral) / 1);
   position: relative;
   margin-bottom: 2.7778rem;
-  font-size: clamp(3.5rem, 10vw, 10rem);
+  font-size: clamp(3.6rem, 15vw, 9rem);
   color: var(--color);
 }
 
@@ -1320,11 +1350,6 @@ header {
   gap: 2rem;
 }
 
-.about-page .about__title,
-.reasons__title {
-  font-size: clamp(2.2rem, 7vw, 3rem);
-}
-
 .about__text {
   margin-bottom: 2.5rem;
 }
@@ -1374,6 +1399,7 @@ header {
 .container--reasons {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 }
 
 .reasons__img-container {
@@ -1392,8 +1418,6 @@ header {
 .reasons__title {
   margin-block: 3rem;
   margin-bottom: 2.5rem;
-
-  font-size: clamp(2rem, 10vw, 2.25rem);
 }
 
 .reasons__number {
@@ -1409,7 +1433,7 @@ header {
   .container--reasons {
     flex-direction: row-reverse;
     height: 100%;
-    padding-inline: clamp(1.5rem, 7vw, 3rem);
+    padding-inline: var(--padding-inline, 3rem);
   }
 
   /* when the element's position is set to sticky, it would make its parent a sticky container, that allow the element itself to stick within the parent's space */
