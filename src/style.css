@@ -33,7 +33,7 @@
 * {
   margin: 0;
   scroll-behavior: smooth;
-  outline: 1px solid rgba(255, 0, 0, 0.2);
+  /* outline: 1px solid rgba(255, 0, 0, 0.2); */
 }
 
 html,
@@ -79,7 +79,6 @@ h6 {
 
 /* my own extra css setting */
 
-button,
 li {
   all: unset;
 }
@@ -327,6 +326,10 @@ header {
   width: 125px;
 }
 
+.navbar__logo > a::after {
+  display: none;
+}
+
 .navbar__list {
   display: flex;
   gap: 2.5rem;
@@ -374,6 +377,7 @@ header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  position: relative;
 
   /* Spacing */
   padding: 0.75rem 2rem;
@@ -385,7 +389,26 @@ header {
 
   /* Others */
   border: 2px solid rgba(var(--secondary) / 1);
-  border-radius: 25px;
+  overflow: hidden;
+  transition: color var(--animated-time) ease;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(var(--secondary) / 1);
+  transform: translateX(-100%);
+  z-index: -1;
+  transition: transform var(--animated-time) ease;
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+}
+
+.btn:hover {
+  color: rgba(var(--primary) / 1);
 }
 
 .btn--normal:hover {
@@ -401,14 +424,17 @@ header {
   /* Spacing */
   width: 26px;
   height: 18px;
-
   /* Others */
-  transform: translateX(0);
-  transition: transform var(--animated-time, 250ms) ease;
+  transition: filter var(--animated-time) ease;
 }
 
 .btn--icon:hover > img {
-  transform: translateX(5px);
+  filter: invert(97%) sepia(6%) saturate(737%) hue-rotate(308deg)
+    brightness(104%) contrast(93%);
+}
+
+.btn--icon {
+  position: relative;
 }
 
 .btn--hover {
@@ -616,7 +642,7 @@ header {
 .cta {
   padding: 0;
   padding-block: 0.75rem;
-  width: 97.5%;
+  width: 100%;
 
   justify-content: center;
 }
@@ -804,14 +830,16 @@ header {
 }
 
 .portfolio__content,
-.about__content {
+.about__content,
+.instagram__text-container {
   opacity: 0;
   transform: translateY(-10%);
   transition: opacity 1s ease, transform 1s ease;
 }
 
 .portfolio__content.animate,
-.about__content.animate {
+.about__content.animate,
+.instagram__text-container.animate {
   opacity: 1;
   transform: translateY(0%);
 }
@@ -957,7 +985,7 @@ header {
   display: none;
 }
 
-@media (min-width: 765px) {
+@media (min-width: 900px) {
   .instagram__images {
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
@@ -1119,14 +1147,37 @@ header {
 
 .hero-header__title {
   --color: rgba(var(--neutral) / 1);
+  --animated-time: 500ms;
   position: relative;
   margin-bottom: 2.7778rem;
   font-size: clamp(3.6rem, 15vw, 9rem);
   color: var(--color);
+  opacity: 0;
+  transition: opacity var(--animated-time) ease;
+}
+
+.hero-header__title::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--animated-time) ease;
+}
+
+.animate.hero-header__title {
+  opacity: 1;
+}
+
+.animate.hero-header__title::before {
+  transform: scaleX(1);
 }
 
 @media (min-width: 1396px) {
-  .hero-header__title {
+  .hero-header__title-container {
     margin-inline: auto;
   }
 }
