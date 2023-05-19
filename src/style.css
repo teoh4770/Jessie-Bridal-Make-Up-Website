@@ -53,6 +53,7 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+  block-size: auto;
 }
 
 img {
@@ -240,7 +241,7 @@ a:hover::after {
 }
 
 .flow > * + * {
-  margin-top: calc(var(--nav-height) * 1.25);
+  margin-top: calc(var(--nav-height) * 1.5);
 }
 
 .mg-inline-auto {
@@ -652,6 +653,8 @@ header {
   width: 100%;
   aspect-ratio: 1 / 1.25;
   object-fit: cover;
+
+  background-color: rgba(var(--secondary) / 1);
 }
 
 .hero__heading > * {
@@ -1366,12 +1369,13 @@ header {
 
 .gallery__grid img {
   object-fit: cover;
-  aspect-ratio: 4/5;
+  background-color: rgba(var(--secondary) / 1);
 }
 
 .background-video {
   width: 100%;
   aspect-ratio: 1;
+  background-color: rgba(var(--secondary) / 1);
 }
 
 .video {

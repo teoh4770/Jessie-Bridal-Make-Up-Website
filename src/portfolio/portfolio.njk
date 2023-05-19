@@ -6,7 +6,7 @@ layout: 'mainlayout.njk'
 
 <section class="hero-header hero-header--portfolio">
   <div class="hero-header__title-container inline-padding container">
-    <h1 class="hero-header__title animatedObj">About Me</h1>
+    <h1 class="hero-header__title animatedObj">Portfolio</h1>
   </div>
 </section>
 
@@ -14,9 +14,9 @@ layout: 'mainlayout.njk'
 <section class="gallery container inline-padding">
   <div class="gallery__grid">
     {% for image in gallery %}
-    <div class="content flow">
-      <img src="{{image}}" alt="">
-    </div>
+    <picture class="content flow">
+      <img loading="lazy" src="{{image}}" alt="" style="aspect-ratio: 4/5;">
+    </picture>
     {% endfor %}
   </div>
 
@@ -27,8 +27,9 @@ layout: 'mainlayout.njk'
 <!-- media playing here -->
 <section class="portfolio__video inline-padding">
   <div class="background-video">
-    <video class="video" autoplay loop muted>
-      <source src="../assets/video/short2.mp4" type="video/mp4" />
+    <video preload="none" class="video" autoplay loop muted playinline>
+      <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        type="video/mp4" />
     </video>
   </div>
 </section>
