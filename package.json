@@ -1,0 +1,27 @@
+{
+  "name": "jessie-bridal-make-up-website",
+  "version": "1.0.0",
+  "description": "Making a website that provides all the service info for the customers + portfolio to show my sister works for my sister's make up business.",
+  "main": "components.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teoh4770/Jessie-Bridal-Make-Up-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teoh4770/Jessie-Bridal-Make-Up-Website/issues"
+  },
+  "homepage": "https://github.com/teoh4770/Jessie-Bridal-Make-Up-Website#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.12"
+  }
+}

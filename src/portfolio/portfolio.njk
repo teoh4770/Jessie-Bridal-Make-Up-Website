@@ -1,0 +1,35 @@
+---
+title: Portfolio
+classname: portfolio-page
+layout: 'mainlayout.njk'
+---
+
+<section class="hero-header hero-header--portfolio">
+  <div class="hero-header__title-container inline-padding container">
+    <h1 class="hero-header__title animatedObj">Portfolio</h1>
+  </div>
+</section>
+
+<!-- gallery -->
+<section class="gallery container inline-padding">
+  <div class="gallery__grid">
+    {% for image in gallery %}
+    <picture class="content flow">
+      <img loading="lazy" src="{{image}}" alt="" style="aspect-ratio: 4/5;">
+    </picture>
+    {% endfor %}
+  </div>
+
+</section>
+
+
+
+<!-- media playing here -->
+<section class="portfolio__video inline-padding">
+  <div class="background-video">
+    <video preload="none" class="video" autoplay loop muted playinline>
+      <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        type="video/mp4" />
+    </video>
+  </div>
+</section>
