@@ -12,9 +12,15 @@ class App {
     this.$menuItems = document.querySelectorAll(".menu__item > a");
     this.$faqItems = document.querySelectorAll(".faq__item");
     this.$faq = document.querySelector(".faq");
+    this.$galleryGrid = document.querySelector(".gallery__grid");
 
+    logJSONData().then((obj) => {
+      this.uploadImages(obj);
+    });
     this.addAnimation();
     this.addIndex(this.$faqItems);
+
+    // this.uploadImages(this.images);
     this.addEventListeners();
   }
 
@@ -139,6 +145,19 @@ class App {
     });
   }
 
+  // uploadImages(listOfImages) {
+  //   const html = listOfImages
+  //     .map(
+  //       ({ image, url }) =>
+  //         `<picture class="content"><img src="${image}" alt="" style="aspect-ratio: 4/5;"></picture>`
+  //     )
+  //     .join();
+
+  //   if (this.$galleryGrid) {
+  //     this.$galleryGrid.innerHTML = html;
+  //   }
+  // }
+
   // helper method
   addIndex(listOfElements) {
     listOfElements.forEach((element, key) => {
@@ -158,3 +177,18 @@ class App {
 }
 
 new App();
+
+async function logJSONData() {
+  const response = await fetch("https://feeds.behold.so/AyvmdDKyQGzvsNQ3zW1M");
+  const jsonData = await response.json();
+
+  // return arr;
+  let arr = jsonData.map(function (post) {
+    return {
+      image: post.mediaUrl,
+      url: post.permalink,
+    };
+  });
+
+  return arr;
+}
