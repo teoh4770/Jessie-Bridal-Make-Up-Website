@@ -14,10 +14,11 @@ layout: 'mainlayout.njk'
 <section class="gallery container inline-padding">
   <div class="gallery__grid">
     {% for image in gallery %}
-    <picture class="content flow">
+    <picture class="content">
       <img loading="lazy" src="{{image}}" alt="" style="aspect-ratio: 4/5;">
     </picture>
     {% endfor %}
+
   </div>
 
 </section>

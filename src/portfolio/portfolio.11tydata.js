@@ -15,10 +15,11 @@ for (let i = 0; i < galleryImages.length; i++) {
   gallery.push(shorterlinkImg);
 }
 gallery.sort((a, b) => a > b);
-let collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'})
+let collator = new Intl.Collator(undefined, {
+  numeric: true,
+  sensitivity: "base",
+});
 gallery.sort(collator.compare);
-console.log(gallery);
-
 
 module.exports = function () {
   // finalizing gallery images

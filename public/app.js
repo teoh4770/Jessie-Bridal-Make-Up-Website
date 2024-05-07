@@ -1,3 +1,5 @@
+// import { importImages  } from './images.js';
+
 class App {
   constructor() {
     this.index = "";
@@ -12,9 +14,14 @@ class App {
     this.$menuItems = document.querySelectorAll(".menu__item > a");
     this.$faqItems = document.querySelectorAll(".faq__item");
     this.$faq = document.querySelector(".faq");
+    this.$galleryGrid = document.querySelector(".gallery__grid");
 
+    // importImages().then((obj) => {
+    //   this.uploadImages(obj);
+    // });
     this.addAnimation();
     this.addIndex(this.$faqItems);
+
     this.addEventListeners();
   }
 
@@ -138,6 +145,19 @@ class App {
       servicesCardsObserver.observe(card);
     });
   }
+
+  // uploadImages(listOfImages) {
+  //   const html = listOfImages
+  //     .map(
+  //       ({ image, url }) =>
+  //         `<picture class="content"><img src="${image}" alt="" style="aspect-ratio: 4/5;"></picture>`
+  //     )
+  //     .join();
+
+  //   if (this.$galleryGrid) {
+  //     this.$galleryGrid.innerHTML = html;
+  //   }
+  // }
 
   // helper method
   addIndex(listOfElements) {

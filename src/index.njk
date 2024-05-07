@@ -3,26 +3,21 @@ title: "Homepage"
 classname: "home-page"
 layout: "mainlayout.njk"
 
-hero_subheading: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-dolore ."
+hero_subheading: "ENHANCE YOUR NATURAL BEAUTY WITH THE EXPERTISE OF A HIGH-PERFORMANCE MAKEUP ARTIST AND HAIRSTYLIST, CAPTURING AND SHOWCASING YOUR MOST BEAUTIFUL MOMENT"
 
-second_hero_description: "Soft, sexy, classy, romantic or bold look? It doesn't matter which style you're looking for. We make it modern, we make it yours."
+second_hero_description: "Whether you prefer a soft, sexy, classy, romantic, or bold look, Jessie will transform it into a modern and personalized style just for you."
 
 services_h2: "I do makeup for"
-
-
-
 ---
-
 
 <section class="hero container">
   <img class="hero__image" src="../assets/images/header__img.webp" alt="<header description>">
   <div class="container container--hero">
-    <div class="hero__heading">
-      <h1>Bring your</h1>
-      <h1>dream-look</h1>
-      <h1>to life.</h1>
-    </div>
+    <h1 class="hero__heading">
+      <div>Bring your</div>
+      <div>dream-look</div>
+      <div>to life.</div>
+    </h1>
     <div class="hero__subheading">
       <p class="uppercase">{{ hero_subheading }}</p>
       <button class="btn btn--icon cta">
@@ -32,7 +27,6 @@ services_h2: "I do makeup for"
     </div>
   </div>
 </section>
-
 <section class="hero-two">
   <div class="container inline-padding container--hero-two">
     <h2 class="hero-two__description">{{ second_hero_description }}</h2>
@@ -42,7 +36,6 @@ services_h2: "I do makeup for"
     </div>
   </div>
 </section>
-
 <section class="services">
   <div class="container inline-padding">
     <div class="flex">
@@ -55,8 +48,7 @@ services_h2: "I do makeup for"
     <section class="services__cards">
       <div class="services__card ">
         <div class="services__card-image-wrapper">
-          <img loading="lazy" class="services__card-image" src="../assets/images/header__img.webp"
-            alt="<header description>">
+          <img loading="lazy" class="services__card-image" src="../assets/images/header__img.webp" alt="<header description>">
         </div>
         <hr>
         <div class="services__card-description">
@@ -66,24 +58,22 @@ services_h2: "I do makeup for"
       </div>
       <div class="services__card ">
         <div class="services__card-image-wrapper">
-          <img loading="lazy" class="services__card-image" src="../assets/images/header__img.webp"
-            alt="<header description>">
+          <img loading="lazy" class="services__card-image" src="../assets/images/header__img.webp" alt="<header description>">
         </div>
         <hr>
         <div class="services__card-description">
-          <span class="services__card-number">01/</span>
-          <span class="services__card-title">wedding look</span>
+          <span class="services__card-number">02/</span>
+          <span class="services__card-title">photoshoot</span>
         </div>
       </div>
       <div class="services__card ">
         <div class="services__card-image-wrapper">
-          <img loading="lazy" class="services__card-image" src="../assets/images/header__img.webp"
-            alt="<header description>">
+          <img loading="lazy" class="services__card-image" src="../assets/images/header__img.webp" alt="<header description>">
         </div>
         <hr>
         <div class="services__card-description">
-          <span class="services__card-number">01/</span>
-          <span class="services__card-title">wedding look</span>
+          <span class="services__card-number">03/</span>
+          <span class="services__card-title">editorial photoshoot</span>
         </div>
       </div>
     </section>
@@ -93,11 +83,12 @@ services_h2: "I do makeup for"
     </button>
   </div>
 </section>
-
 <section class="about">
   <div class="container inline-padding container--about">
     <div class="about__content animatedObj">
-      <h2 class="about__title text-center ">Work with a <br> world-class <br> <span class="highlight">specialist.</span></h2>
+      <h2 class="about__title text-center ">Work with a <br> world-class <br>
+        <span class="highlight">specialist.</span>
+      </h2>
       <button class="btn btn--icon cta about__btn">
         <span>Get to know me</span>
         <img src="../assets/svg/arrow.svg" alt="arrow">
@@ -106,7 +97,6 @@ services_h2: "I do makeup for"
     <img loading="lazy" class="about__image" src="../assets/images/header__img.webp" alt="Home Page-About-Jessie">
   </div>
 </section>
-
 <section class="portfolio">
   <div class="container inline-padding container--portfolio">
     <div class="portfolio__content animatedObj">
@@ -121,8 +111,7 @@ services_h2: "I do makeup for"
         <img loading="lazy" class="portfolio__image" src="../assets/images/header__img.webp" alt="">
       </div>
       <div class="portfolio__grid-area area-b">
-        <img loading="lazy" class="portfolio__image portfolio__image--special" src="../assets/images/header__img.webp"
-          alt="">
+        <img loading="lazy" class="portfolio__image portfolio__image--special" src="../assets/images/header__img.webp" alt="">
       </div>
       <div class="portfolio__grid-area area-c">
         <img loading="lazy" class="portfolio__image portfolio__image" src="../assets/images/header__img.webp" alt="">
@@ -130,14 +119,12 @@ services_h2: "I do makeup for"
     </div>
   </div>
 </section>
-
 <section class="home-faq">
   <div class="container inline-padding container--faq">
     <div class="faq__content">
       <h2 class="faq__title">FAQ</h2>
       <p class="faq__subtitle">
-        Here are the most commonly
-        questions I get from my clients.
+        Here are the most commonly questions I get from my clients.
       </p>
     </div>
     <ul class="faq">
@@ -145,7 +132,7 @@ services_h2: "I do makeup for"
         <div class="faq__question">
           <div class="faq__container">
             <div class="faq__wrapper">
-              <div class="faq__title">Question 1: Lorem ipsum dolor sit amet
+              <div class="faq__title">Question 1: How I can get in touch with you?
               </div>
             </div>
             <div class="faq__icon">
@@ -153,10 +140,7 @@ services_h2: "I do makeup for"
             </div>
           </div>
           <div class="faq__answer">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim laboriosam optio, iste quas molestias
-              temporibus unde ex exercitationem aliquid voluptates? Lorem ipsum, dolor sit amet consectetur
-              adipisicing elit. Enim laboriosam optio, iste quas molestias temporibus unde ex exercitationem aliquid
-            </p>
+            <p>Please feel free to fill out the form at the bottom of the page.</p>
           </div>
         </div>
       </li>
@@ -164,7 +148,7 @@ services_h2: "I do makeup for"
         <div class="faq__question">
           <div class="faq__container">
             <div class="faq__wrapper">
-              <div class="faq__title">Question 1: Lorem ipsum dolor sit amet
+              <div class="faq__title">Question 2: How much time does it take?
               </div>
             </div>
             <div class="faq__icon">
@@ -172,7 +156,7 @@ services_h2: "I do makeup for"
             </div>
           </div>
           <div class="faq__answer">
-            <p>Hello world</p>
+            <p>The makeup takes from 45 minutes. The hair service takes from 30 minutes.</p>
           </div>
         </div>
       </li>
@@ -180,7 +164,7 @@ services_h2: "I do makeup for"
         <div class="faq__question">
           <div class="faq__container">
             <div class="faq__wrapper">
-              <div class="faq__title">Question 1: Lorem ipsum dolor sit amet
+              <div class="faq__title">Question 3: Where I can find more of your work?
               </div>
             </div>
             <div class="faq__icon">
@@ -188,7 +172,7 @@ services_h2: "I do makeup for"
             </div>
           </div>
           <div class="faq__answer">
-            <p>Hello world</p>
+            <p>You can go to see some of my work on Portfolio page. Or you can join my Instagram page. I post my work there every week.</p>
           </div>
         </div>
       </li>
@@ -196,7 +180,7 @@ services_h2: "I do makeup for"
         <div class="faq__question">
           <div class="faq__container">
             <div class="faq__wrapper">
-              <div class="faq__title">Question 1: Lorem ipsum dolor sit amet
+              <div class="faq__title">Question 4: Do I need a trial?
               </div>
             </div>
             <div class="faq__icon">
@@ -204,11 +188,10 @@ services_h2: "I do makeup for"
             </div>
           </div>
           <div class="faq__answer">
-            <p>Hello world</p>
+            <p>I would like to apologize ahead as there is no trial available for new customer.</p>
           </div>
         </div>
       </li>
-
     </ul>
   </div>
 </section>

@@ -8,7 +8,6 @@
   <title>About</title>
   <link rel="preload" href="/style.css" as="style" />
   <link rel="preload" href="/app.js" as="script" />
-
   <link rel="stylesheet" href="/style.css" />
 </head>
 
@@ -17,7 +16,7 @@
   <nav class="navbar hidden navbar--desktop">
     <div class="container inline-padding container--navbar">
       <section class="navbar__logo">
-        <a href="/index.html">
+        <a href="/">
           <img src="/assets/svg/logoipsum.svg" alt="logo">
         </a>
       </section>
@@ -73,18 +72,20 @@
     <h1 class="hero-header__title animatedObj">About Me</h1>
   </div>
 </section>
-
 <section class="container inline-padding about__heading">
-  <h2 class="about__title">Work with the world class specialist</h2>
+  <h2 class="about__title">Work with Jessie</h2>
   <div>
     <div class="about__text">
-      <p>3 Sentence Intro about Sister</p>
-      <p>- when is your journey started</p>
-      <p>- why and how do you choose makeup as a profession</p>
-      <p>- what have you achieved? whatkind of style you learnt? what you have learnt from other</p>
+      <p>Hi, I'm Jessie.</p>
+      <p>My makeup journey began 5 years ago when I discovered my love for transforming faces into works of art. Eager to
+        expand my skills and knowledge, I enrolled in an international beauty school, where my passion quickly evolved into a
+        professional career.</p>
+      <p>For over 5 years now, I've been dedicated to helping women feel confident and embrace their unique beauty through
+        makeup artistry. I've had the privilege of learning from top industry stylists in Malaysia, continually refining my
+        craft to stay current with the latest techniques and create timeless, stunning looks.</p>
     </div>
     <div class="about__labelname about__labelname--first">
-      <p class="about__number">100+</p>
+      <p class="about__number">200+</p>
       <span class="about__label uppercase">Happy Clients</span>
     </div>
     <div class="about__labelname">
@@ -93,8 +94,6 @@
     </div>
   </div>
 </section>
-
-
 <section class="reasons">
   <div class="container container--reasons">
     <div class="reasons__side">
@@ -107,49 +106,42 @@
       <div>
         <p class="reasons__number">01/</p>
         <h4 class="reasons__reason text--large">
-          Reason 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          You are welcome in our studio or we travel to you
         </h4>
       </div>
       <div>
-        <p class="reasons__number">01/</p>
+        <p class="reasons__number">02/</p>
         <h4 class="reasons__reason text--large">
-          Reason 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          I use professional and high-end cosmetic brands
         </h4>
       </div>
       <div>
-        <p class="reasons__number">01/</p>
+        <p class="reasons__number">03/</p>
         <h4 class="reasons__reason text--large">
-          Reason 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          I won’t leave you hanging! I stay in touch during the whole process
         </h4>
       </div>
       <div>
-        <p class="reasons__number">01/</p>
+        <p class="reasons__number">04/</p>
         <h4 class="reasons__reason text--large">
-          Reason 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          I guide you throughout the process to achieve the best results
         </h4>
       </div>
       <div>
-        <p class="reasons__number">01/</p>
+        <p class="reasons__number">05/</p>
         <h4 class="reasons__reason text--large">
-          Reason 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          I enhance your natural beauty and highlight your best features
         </h4>
       </div>
       <div>
-        <p class="reasons__number">01/</p>
+        <p class="reasons__number">06/</p>
         <h4 class="reasons__reason text--large">
-          Reason 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        </h4>
-      </div>
-      <div>
-        <p class="reasons__number">01/</p>
-        <h4 class="reasons__reason text--large">
-          Reason 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          I work closely with you and welcome your makeup suggestions
         </h4>
       </div>
     </div>
   </div>
 </section>
-
 <section class="portfolio--secondary container inline-padding">
   <div class="portfolio__text-container">
     <h2 class="portfolio__title text-center">My clients</h2>
@@ -194,38 +186,43 @@
 </section>
 </main>
   <footer id="contact" class="footer container inline-padding">
-  <hr class="footer__line">
+  <!--<hr class="footer__line">-->
+  <hr>
+  <!-- even space: composition utility class -->
   <div class="footer__container">
+    <!-- footer__content, nav-type: links -->
     <section class="footer-section">
-      <ul class="footer-section__list">
-        <li class="footer-section__item">
-          <a href="/index.html">Home</a>
+      <!-- this is just a list, at footer section, maybe not need to be so specific -->
+      <ul class="footer-section__list footer__list" data-type="navigation-links">
+        <li class="footer__item">
+          <a href="/" class="link" data-type="link-with-text">@Jessie</a>
         </li>
-        <li class="footer-section__item">
-          <a href="/services">Services</a>
+        <li class="footer__item">
+          <a href="/services" class="link" data-type="link-with-text">Services</a>
         </li>
-        <li class="footer-section__item">
-          <a href="/portfolio">Portfolio</a>
+        <li class="footer__item">
+          <a href="/portfolio" class="link" data-type="link-with-text">Portfolio</a>
         </li>
-        <li class="footer-section__item">
-          <a href="/about">About Me</a>
+        <li class="footer__item">
+          <a href="/about" class="link" data-type="link-with-text">About Me</a>
         </li>
       </ul>
     </section>
-    <section class="footer-section socials__section">
-      <ul class="socials__list">
-        <li class="footer-section__item">
-          <a href="#" class="socials__link instagram">
+    <!-- footer__content, nav-type: social-links -->
+    <section class="footer-section socials__section" data-type="social-links">
+      <ul class="footer__list socials__list">
+        <li class="footer__item">
+          <a href="#" class="socials__link instagram link" data-type="link-with-image">
             <img src="/assets/svg/instagram.svg" alt="Connect with me on Instagram">
           </a>
         </li>
-        <li class="footer-section__item">
-          <a href="#" class="socials__link messenger">
+        <li class="footer__item">
+          <a href="#" class="socials__link messenger link" data-type="link-with-image">
             <img src="/assets/svg/messenger.svg" alt="Connect with me on Messenger">
           </a>
         </li>
-        <li class="footer-section__item">
-          <a href="#" class="socials__link whatsapp">
+        <li class="footer__item">
+          <a href="#" class="socials__link whatsapp link" data-type="link-with-image">
             <img src="/assets/svg/whatsapp.svg" alt="Connect with me on Whatsapp">
           </a>
         </li>
@@ -235,7 +232,6 @@
 </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-  <script src="/app.js"></script>
+  <script src="/app.js" type="module"></script>
 </body>
-
 </html>
