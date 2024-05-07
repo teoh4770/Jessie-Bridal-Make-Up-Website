@@ -1,3 +1,5 @@
+// import { importImages  } from './images.js';
+
 class App {
   constructor() {
     this.index = "";
@@ -14,13 +16,12 @@ class App {
     this.$faq = document.querySelector(".faq");
     this.$galleryGrid = document.querySelector(".gallery__grid");
 
-    logJSONData().then((obj) => {
-      this.uploadImages(obj);
-    });
+    // importImages().then((obj) => {
+    //   this.uploadImages(obj);
+    // });
     this.addAnimation();
     this.addIndex(this.$faqItems);
 
-    // this.uploadImages(this.images);
     this.addEventListeners();
   }
 
@@ -177,18 +178,3 @@ class App {
 }
 
 new App();
-
-async function logJSONData() {
-  const response = await fetch("https://feeds.behold.so/AyvmdDKyQGzvsNQ3zW1M");
-  const jsonData = await response.json();
-
-  // return arr;
-  let arr = jsonData.map(function (post) {
-    return {
-      image: post.mediaUrl,
-      url: post.permalink,
-    };
-  });
-
-  return arr;
-}
